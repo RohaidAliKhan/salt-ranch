@@ -1,3 +1,53 @@
+@font-face {
+  font-family: "Manuka";
+  src: url("../fonts/Manuka-Regular.eot");
+  src: url("../fonts/Manuka-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Manuka-Regular.woff2") format("woff2"), url("../fonts/Manuka-Regular.woff") format("woff"), url("../fonts/Manuka-Regular.ttf") format("truetype"),
+    url("../fonts/Manuka-Regular.svg#Manuka-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Manuka Slab";
+  src: url("../fonts/ManukaSlab-Regular.eot");
+  src: url("../fonts/ManukaSlab-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/ManukaSlab-Regular.woff2") format("woff2"), url("../fonts/ManukaSlab-Regular.woff") format("woff"),
+    url("../fonts/ManukaSlab-Regular.ttf") format("truetype"), url("../fonts/ManukaSlab-Regular.svg#ManukaSlab-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Founders Grotesk";
+  src: url("../fonts/FoundersGrotesk-Regular.eot");
+  src: url("../fonts/FoundersGrotesk-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/FoundersGrotesk-Regular.woff2") format("woff2"), url("../fonts/FoundersGrotesk-Regular.woff") format("woff"),
+    url("../fonts/FoundersGrotesk-Regular.ttf") format("truetype"), url("../fonts/FoundersGrotesk-Regular.svg#FoundersGrotesk-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Founders Grotesk Regular";
+  src: url("../fonts/FoundersGrotesk-RegularItalic.eot");
+  src: url("../fonts/FoundersGrotesk-RegularItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/FoundersGrotesk-RegularItalic.woff2") format("woff2"), url("../fonts/FoundersGrotesk-RegularItalic.woff") format("woff"),
+    url("../fonts/FoundersGrotesk-RegularItalic.ttf") format("truetype"), url("../fonts/FoundersGrotesk-RegularItalic.svg#FoundersGrotesk-RegularItalic") format("svg");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Founders Grotesk Mono";
+  src: url("../fonts/FoundersGroteskMono-Regular.eot");
+  src: url("../fonts/FoundersGroteskMono-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/FoundersGroteskMono-Regular.woff2") format("woff2"), url("../fonts/FoundersGroteskMono-Regular.woff") format("woff"),
+    url("../fonts/FoundersGroteskMono-Regular.ttf") format("truetype"), url("../fonts/FoundersGroteskMono-Regular.svg#FoundersGroteskMono-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /*===========================
   Global
 ===========================*/
@@ -15,8 +65,11 @@
   --primary-bg-color: var(--softwhitequatz);
 
   /* Fonts */
-  --primary-font: "Poppins", sans-serif;
-  --secondary-font: "Roboto", sans-serif;
+  --fontfamily-manuka: "Manuka", sans-serif;
+  --fontfamily-manuka-slab: "Manuka Slab", sans-serif;
+  --fontfamily-founders-grotesk: "Founders Grotesk", sans-serif;
+  --fontfamily-founders-grotesk-italic: "Founders Grotesk Regular", sans-serif;
+  --fontfamily-founders-grotesk-mono: "Founders Grotesk Mono", sans-serif;
 
   /* Font Size */
   --font-size-base: 1.125rem;
@@ -68,6 +121,7 @@ html {
 
 body {
   font-size: var(--font-size-base);
+  font-family: var(--fontfamily-founders-grotesk);
   -webkit-font-smoothing: antialiased;
   color: var(--primary-text-color);
   background-color: var(--primary-bg-color);
@@ -243,7 +297,7 @@ p:empty {
 /* Heading */
 h1,
 .heading-style-h1 {
-  font-family: var(--primary-font);
+  font-family: var(--fontfamily-manuka);
   font-size: var(--font-size-h1);
   line-height: 1;
   text-transform: uppercase;
@@ -253,12 +307,16 @@ h1,
 
 h2,
 .heading-style-h2 {
-  font-family: var(--primary-font);
+  font-family: var(--fontfamily-manuka);
   font-size: var(--font-size-h2);
   line-height: 1;
   text-transform: uppercase;
   letter-spacing: -0.015em;
   margin: 0;
+}
+
+.alt-font {
+  font-family: var(--fontfamily-manuka-slab);
 }
 
 section:is(:not(.section-hero), .no-background) {
@@ -311,6 +369,7 @@ header .navbar-desktop li {
 }
 header .navbar-desktop li a {
   font-size: 1.875rem;
+  font-family: var(--fontfamily-manuka);
   left: 0.03em;
   text-transform: uppercase;
 }

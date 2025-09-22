@@ -1,6 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   initMarquee("#marquee", 1);
   initMarquee("#marquee2", -1);
+
+  const altElements = document.querySelectorAll([".heading-style-h1", "h1", ".heading-style-h2", "h2", ".navbar ul li a"]);
+
+  altElements.forEach((el) => {
+    el.innerHTML = el.textContent.replace(/([CGJSQ123569])/gi, '<span class="alt-font">$1</span>');
+  });
 });
 
 function initMarquee(selector, speed = 1) {
