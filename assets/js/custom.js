@@ -21,15 +21,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function initMarquee(selector, speed = 1) {
   const marquee = document.querySelector(selector);
+  if (!marquee) return;
+
   const inner = marquee.querySelector(".marquee-inner");
+  if (!inner) return;
+
+  inner.innerHTML += inner.innerHTML;
 
   let position = 0;
+  const halfWidth = inner.scrollWidth / 2;
+
   function animate() {
     position -= speed;
-    if (Math.abs(position) >= inner.firstElementChild.offsetWidth + 32) {
-      inner.appendChild(inner.firstElementChild);
+
+    if (speed > 0 && position <= -halfWidth) {
       position = 0;
+    } else if (speed < 0 && position >= 0) {
+      position = -halfWidth;
     }
+
     inner.style.transform = `translateX(${position}px)`;
     requestAnimationFrame(animate);
   }

@@ -218,7 +218,12 @@ p:empty {
 
 .marquee-content {
   display: inline-block;
-  padding-right: 2rem;
+  padding-right: 5rem;
+  font-family: "Founders Grotesk Mono";
+}
+
+.marquee-content .is-underline {
+  border-bottom: 1px solid;
 }
 
 .marquee-inner {
