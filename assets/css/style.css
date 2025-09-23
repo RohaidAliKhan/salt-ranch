@@ -222,6 +222,10 @@ p:empty {
   will-change: transform;
 }
 
+.is-mobile {
+  display: none;
+}
+
 /* Normal Button */
 .btn {
   font-size: 1.875rem;
@@ -349,6 +353,15 @@ h2,
   margin: 0;
 }
 
+h4,
+.heading-style-h4 {
+  font-family: var(--fontfamily-founders-grotesk);
+  font-size: var(--font-size-h4);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 .alt-font {
   font-family: var(--fontfamily-manuka-slab);
 }
@@ -435,7 +448,6 @@ section:is(:not(.section-hero), .no-background) {
 }
 
 /* Header */
-
 .notification-bar {
   background: var(--coral);
   padding-block: 1rem;
@@ -471,7 +483,33 @@ header .navbar-desktop li a {
 header .navbar-desktop li a:hover {
   color: currentColor;
 }
-
+.mega-menu {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100vw;
+  background-color: var(--primary-bg-color);
+  z-index: 999;
+  padding-bottom: 1rem;
+}
+.dropdown-menu.show {
+  margin: 0;
+  border: unset;
+  padding-top: 0;
+  padding-bottom: 1.5rem;
+}
+.mega-menu a {
+  font-family: "Founders Grotesk Mono" !important;
+  text-transform: uppercase !important;
+  padding-top: 0.4rem;
+  font-size: 1rem !important;
+}
+.mega-menu .alt-font {
+  font-family: "Founders Grotesk Mono" !important;
+}
+.mega-menu img {
+  max-width: 100%;
+}
 .hero-wrapper {
   display: grid;
   grid-template-columns: 1fr;
@@ -535,4 +573,209 @@ header .navbar-desktop li a:hover {
 }
 .section-col-2 .right-col .center-content {
   padding-top: 9.375rem;
+}
+.email-block {
+  padding-left: 3rem;
+}
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+.newsletter-form {
+  max-width: 100%;
+  margin: 0 auto;
+}
+.nl-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.nl-wrap input[type="email"] {
+  width: 100%;
+  padding: 0.3rem 0;
+  outline: none;
+  border: unset;
+  background: transparent;
+  text-transform: uppercase;
+  font-family: "Founders Grotesk Mono";
+  border-bottom: 1px solid;
+  font-size: 1rem;
+}
+.nl-wrap input[type="email"]::placeholder {
+  color: var(--primary-text-color);
+}
+.nl-btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  padding: 0;
+}
+footer li a,
+.copyright-content {
+  font-family: "Founders Grotesk Mono";
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+.copyright-content p {
+  margin-bottom: 0;
+  line-height: 1.7;
+}
+.copyright-menu ul {
+  gap: 1.5rem;
+}
+.copyright-row {
+  padding-top: 7.5625rem;
+}
+
+/*-----------------------------------------------------------------------------------------------------*/
+@media (max-width: 1600px) {
+}
+/*-----------------------------------------------------------------------------------------------------*/
+@media (max-width: 1440px) {
+}
+/*-----------------------------------------------------------------------------------------------------*/
+@media (max-width: 1366px) {
+}
+/*-----------------------------------------------------------------------------------------------------*/
+@media (max-width: 1280px) {
+}
+/*-----------------------------------------------------------------------------------------------------*/
+@media (max-width: 1024px) {
+}
+/*-----------------------------------------------------------------------------------------------------*/
+@media (max-width: 840px) {
+  header .navbar-desktop li a {
+    font-size: 1.2rem;
+  }
+  .btn {
+    font-size: 1.2rem;
+  }
+  .navbar-brand svg {
+    width: 140px;
+  }
+  .mega-menu a {
+    font-size: 0.7rem !important;
+  }
+  .hero-wrapper img {
+    min-height: 570px;
+    object-fit: cover;
+  }
+  .home-vector-img {
+    margin-left: -12rem;
+  }
+  .right-vector img {
+    width: 100px;
+  }
+  .left-small-img img {
+    padding-top: 2rem;
+    width: 120px;
+    padding-bottom: 3rem;
+  }
+  .center-content {
+    padding-inline: 0;
+  }
+  section.section-col-2 .col-md-4 img {
+    width: 100%;
+  }
+  .section-col-2 .right-col .center-content {
+    padding-top: 5rem;
+  }
+  section:is(:not(.section-hero), .no-background) {
+    padding: 6rem 0;
+  }
+}
+/*-----------------------------------------------------------------------------------------------------*/
+@media (max-width: 525px) {
+  .is-desktop {
+    display: none;
+  }
+  .is-mobile {
+    display: block;
+  }
+  .btn {
+    font-size: 1.35rem;
+  }
+  header .navbar .container {
+    justify-content: center;
+  }
+  .vertical-text {
+    display: none;
+  }
+  .home-vector-img {
+    margin-left: 0;
+    width: 120px;
+    margin-bottom: 1.5rem;
+  }
+  .right-vector img {
+    width: 90px;
+    margin-top: -1rem;
+    margin-right: 0;
+  }
+  .left-small-img img {
+    margin-right: auto;
+    display: block;
+    padding-top: 0;
+    width: 100px;
+    padding-bottom: 3.75rem;
+  }
+  .double-overlap-images .first-img {
+    width: 40%;
+  }
+  .double-overlap-images .second-img {
+    width: 85%;
+    padding-left: 3rem;
+  }
+  .spacer-medium {
+    min-height: 6.87rem;
+  }
+  .spacer-small {
+    min-height: 2.812rem;
+  }
+  .section-col-2 img {
+    width: 75% !important;
+  }
+  .section-col-2 .left-col .center-content {
+    padding-top: 2.5rem;
+    padding-bottom: 6.25rem;
+  }
+  .section-col-2 .right-col .center-content {
+    padding-top: 2.5rem;
+  }
+  .email-block {
+    padding-left: 0;
+    text-align: center;
+  }
+  .simple-btn {
+    font-size: 1rem;
+  }
+  footer .row {
+    flex-direction: column-reverse;
+    gap: 1.5rem;
+  }
+  .copyright-row {
+    padding-top: 2rem;
+  }
+  .footer-logo {
+    padding-top: 3rem;
+  }
+  .copyright-menu ul {
+    gap: 1.875rem;
+    justify-content: center !important;
+  }
+}
+/*-----------------------------------------------------------------------------------------------------*/
+@media (max-width: 430px) {
+}
+/*-----------------------------------------------------------------------------------------------------*/
+@media (max-width: 360px) {
 }

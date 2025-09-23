@@ -39,10 +39,60 @@
             <div class="col">
               <div class="nav-left">
                 <ul class="navbar-desktop d-none d-md-flex is-font-manuka">
-                  <li><a href="#" class="underline-link">hotel</a></li>
-                  <li><a href="#" class="underline-link">restaurant</a></li>
+                  <li class="nav-item dropdown mega-dropdown"><a href="#" class="underline-link">hotel</a></li>
+                  <li class="mega-dropdown"><a href="#" id="restaurantDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" class="underline-link">restaurant</a>
+                  <div class="dropdown-menu mega-menu" aria-labelledby="restaurantDropdown">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col">
+                          <img src="assets/images/megamenu-room.jpg" class="img-fluid mb-2" alt="Room Img">
+                          <a href="#">Room</a>
+                        </div>
+                        <div class="col">
+                          <img src="assets/images/megamenu-amenities.jpg" class="img-fluid mb-2" alt="Amenities Img">
+                          <a href="#">Amenities</a>
+                        </div>
+                        <div class="col">
+                          <img src="assets/images/megamenu-neighborhood.jpg" class="img-fluid mb-2" alt="Neighborhood Img">
+                          <a href="#">Neighborhood</a>
+                        </div>
+                        <div class="col">
+                          <img src="assets/images/megamenu-history.jpg" class="img-fluid mb-2" alt="History Img">
+                          <a href="#">History</a>
+                        </div>
+                        <div class="col">
+                          <img src="assets/images/megamenu-offer.jpg" class="img-fluid mb-2" alt="Offers Img">
+                          <a href="#">Offers</a>
+                        </div>
+                        <div class="col">
+                          <img src="assets/images/megamenu-gallery.jpg" class="img-fluid mb-2" alt="Gallery Img">
+                          <a href="#">Gallery</a>
+                        </div>
+                        <div class="col">
+                          <img src="assets/images/megamenu-contact.jpg" class="img-fluid mb-2" alt="Contact Img">
+                          <a href="#">Contact</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </li>
                   <li><a href="#" class="underline-link">swim club</a></li>
-                  <li><a href="#" class="underline-link">events</a></li>
+                  <li class="mega-dropdown"><a href="#" id="eventsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" class="underline-link">events</a>
+                    <div class="dropdown-menu mega-menu" aria-labelledby="eventsDropdown">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col">
+                            <img src="assets/images/megamenu-private.jpg" class="img-fluid mb-2" alt="Private Events Img">
+                            <a href="#">Private Events</a>
+                          </div>
+                          <div class="col">
+                            <img src="assets/images/megamenu-event.jpg" class="img-fluid mb-2" alt="Happenings Img">
+                            <a href="#">Happenings</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
                 </ul>
                 <button class="hamburger d-md-none">
                   <div class="bar first"></div>
@@ -99,7 +149,7 @@
                       stroke-miterlimit="16"
                     />
                   </svg>
-                  <span>book a stay</span></a
+                  <span class="is-desktop">book a stay</span><span class="is-mobile">book</span></a
                 >
               </div>
             </div>
@@ -124,7 +174,7 @@
       <section class="section-content">
         <div class="container">
           <div class="row justify-content-center text-center">
-            <div class="col-md-6 mb-4">
+            <div class="col-md-6 mb-4 d-flex flex-md-column flex-column-reverse">
               <h2 class="mb-3">Rest easy lorem ipsum dolor sit adipiscing , sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
               <img src="assets/images/home-vector.png" alt="home-vector" class="home-vector-img">
             </div>
@@ -134,20 +184,23 @@
               </figure>
             </div>
           </div>
-          <div class="spacer-medium"></div>
+          <div class="spacer-medium is-desktop"></div>
           <div class="row">
             <div class="col-md-1 d-flex">
               <span class="vertical-text">HOTEL</span>
             </div>
             <div class="col-md-5">
+              <figure class="right-vector is-mobile">
+                <img src="assets/images/suit-vector.png" alt="Suit Vector" class="suit-vector-img">
+              </figure>
               <figure>
-                <img src="assets/images/bedroom-img.jpg" alt="Bedroom" class="img-fluid rounded">
+                <img src="assets/images/bedroom-img.jpg" alt="Bedroom" class="img-fluid pb-5 pb-md-0">
               </figure>
             </div>
             <div class="col-md-1">
             </div>
             <div class="col-md-4 d-flex flex-column justify-content-between">
-              <figure class="right-vector">
+              <figure class="right-vector is-desktop">
                 <img src="assets/images/suit-vector.png" alt="Suit Vector" class="suit-vector-img">
               </figure>
               <div class="center-content p-0">
@@ -160,10 +213,10 @@
             </div>
           </div>
           <div class="spacer-medium"></div>
-          <div class="row mb-5">
+          <div class="row flex-column-reverse flex-md-row">
             <div class="col-md-1"></div>
             <div class="col-md-4 d-flex flex-column justify-content-between">
-              <figure class="text-center left-small-img">
+              <figure class="text-center left-small-img is-desktop">
               <img src="assets/images/girl-img-small.jpg" alt="Girl Img">
               </figure>
               <div class="center-content ps-0">
@@ -173,7 +226,10 @@
               </div>
             </div>
             <div class="col-md-2"></div>
-            <div class="col-md-5">
+            <div class="col-md-5 pb-md-0 pb-5">
+              <figure class="text-center left-small-img is-mobile">
+                <img src="assets/images/girl-img-small.jpg" alt="Girl Img">
+              </figure>
               <div class="double-overlap-images position-relative">
                   <img src="assets/images/food-img.jpg" alt="Food Img" class="first-img">
                   <img src="assets/images/drink-img.jpg" alt="Drink Img" class="second-img">
@@ -230,7 +286,7 @@
       <section class="section-col-2 background-light">
         <div class="container">
           <div class="row justify-content-evenly text-center">
-            <div class="col-md-4 d-flex flex-column justify-content-between gap-5">
+            <div class="col-md-4 d-flex flex-column justify-content-between gap-5 pb-5 pb-md-0">
                 <figure>
                   <img src="assets/images/swim-club-img.jpg" alt="Swim Club Img">
                 </figure>
@@ -351,7 +407,90 @@
         </div>
       </section>
     </main>
-    <footer></footer>
+    <footer class="background-light py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2">
+            <div class="footer-menu is-desktop">
+              <ul>
+                <li><a href="#">Room</a></li>
+                <li><a href="#">Amenities</a></li>
+                <li><a href="#">Neighborhood</a></li>
+                <li><a href="#">Offers</a></li>
+                <li><a href="#">Gallery</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="footer-menu is-desktop">
+              <ul>
+                <li><a href="#">Restaurant</a></li>
+                <li><a href="#">Swim Club</a></li>
+                <li><a href="#">Private Events</a></li>
+                <li><a href="#">Happenings</a></li>
+                <li><a href="#">Contact us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4 text-center">
+            <div class="footer-logo">
+              <img src="assets/images/footer-logo.png" alt="Salt Ranch Logo">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="email-block">
+              <h4>Stay in the know</h4>
+              <p>Keep up to date with the latest happenings, specials, and all things Salt Ranch.</p>
+              <div class="newslatter pt-5">
+                <form id="newsletterForm" class="newsletter-form" action="#" method="post" aria-label="Newsletter signup">
+                  <label for="nl-email" class="visually-hidden">Email</label>
+                  <div class="nl-wrap">
+                    <input
+                      id="nl-email"
+                      name="email"
+                      type="email"
+                      placeholder="Enter email"
+                      required
+                      autocomplete="email"
+                    />  
+                    <button type="submit" class="nl-btn" aria-label="Subscribe">
+                      <svg width="23" height="14" viewBox="0 0 23 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.0313 0.234375C16.0307 2.4379 18.6513 6.8073 22.1243 6.8073" stroke="#493730" stroke-width="1.5"/>
+                        <path d="M16.0313 13.3799C16.0307 11.1764 18.6513 6.80695 22.1243 6.80695" stroke="#493730" stroke-width="1.5"/>
+                        <path d="M19.7891 6.84668H0.703125" stroke="#493730" stroke-width="1.5"/>
+                      </svg>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row copyright-row align-items-end">
+          <div class="col-md-4">
+            <div class="copyright-menu">
+              <ul class="d-flex">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Accessibility</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4 text-center">
+            <div class="copyright-content">
+              <p>2914 DICKERSON PK. NASH. TENN. 37207<br> POST@SALTRANCHHOTEL.COM  •  888.888.8888<br> © Salt Ranch Hotel 2023</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="copyright-menu">
+              <ul class="d-flex justify-content-end">
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Instagram</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@beta/bundled/locomotive-scroll.min.js"></script>

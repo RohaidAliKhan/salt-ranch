@@ -38,7 +38,7 @@ function initMarquee(selector, speed = 1) {
 
 function initSwiper() {
   new Swiper(".mySwiper", {
-    slidesPerView: "5",
+    slidesPerView: 5,
     centeredSlides: true,
     spaceBetween: 20,
     loop: true,
@@ -49,6 +49,17 @@ function initSwiper() {
     navigation: {
       nextEl: ".mySwiper .swiper-button-next",
       prevEl: ".mySwiper .swiper-button-prev",
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1.5,
+      },
+      768: {
+        slidesPerView: 3.5,
+      },
+      1024: {
+        slidesPerView: 5,
+      },
     },
   });
 }
