@@ -164,6 +164,10 @@ a {
   transition: all var(--animation-smooth);
 }
 
+a:hover {
+  color: var(--coral);
+}
+
 ul,
 li {
   padding: 0;
