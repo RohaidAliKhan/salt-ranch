@@ -1,7 +1,10 @@
 @font-face {
   font-family: "Manuka";
   src: url("../fonts/Manuka-Regular.eot");
-  src: url("../fonts/Manuka-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Manuka-Regular.woff2") format("woff2"), url("../fonts/Manuka-Regular.woff") format("woff"), url("../fonts/Manuka-Regular.ttf") format("truetype"),
+  src: url("../fonts/Manuka-Regular.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Manuka-Regular.woff2") format("woff2"),
+    url("../fonts/Manuka-Regular.woff") format("woff"),
+    url("../fonts/Manuka-Regular.ttf") format("truetype"),
     url("../fonts/Manuka-Regular.svg#Manuka-Regular") format("svg");
   font-weight: normal;
   font-style: normal;
@@ -11,8 +14,11 @@
 @font-face {
   font-family: "Manuka Slab";
   src: url("../fonts/ManukaSlab-Regular.eot");
-  src: url("../fonts/ManukaSlab-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/ManukaSlab-Regular.woff2") format("woff2"), url("../fonts/ManukaSlab-Regular.woff") format("woff"),
-    url("../fonts/ManukaSlab-Regular.ttf") format("truetype"), url("../fonts/ManukaSlab-Regular.svg#ManukaSlab-Regular") format("svg");
+  src: url("../fonts/ManukaSlab-Regular.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/ManukaSlab-Regular.woff2") format("woff2"),
+    url("../fonts/ManukaSlab-Regular.woff") format("woff"),
+    url("../fonts/ManukaSlab-Regular.ttf") format("truetype"),
+    url("../fonts/ManukaSlab-Regular.svg#ManukaSlab-Regular") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -21,8 +27,13 @@
 @font-face {
   font-family: "Founders Grotesk";
   src: url("../fonts/FoundersGrotesk-Regular.eot");
-  src: url("../fonts/FoundersGrotesk-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/FoundersGrotesk-Regular.woff2") format("woff2"), url("../fonts/FoundersGrotesk-Regular.woff") format("woff"),
-    url("../fonts/FoundersGrotesk-Regular.ttf") format("truetype"), url("../fonts/FoundersGrotesk-Regular.svg#FoundersGrotesk-Regular") format("svg");
+  src: url("../fonts/FoundersGrotesk-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/FoundersGrotesk-Regular.woff2") format("woff2"),
+    url("../fonts/FoundersGrotesk-Regular.woff") format("woff"),
+    url("../fonts/FoundersGrotesk-Regular.ttf") format("truetype"),
+    url("../fonts/FoundersGrotesk-Regular.svg#FoundersGrotesk-Regular")
+      format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -31,8 +42,13 @@
 @font-face {
   font-family: "Founders Grotesk Regular";
   src: url("../fonts/FoundersGrotesk-RegularItalic.eot");
-  src: url("../fonts/FoundersGrotesk-RegularItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/FoundersGrotesk-RegularItalic.woff2") format("woff2"), url("../fonts/FoundersGrotesk-RegularItalic.woff") format("woff"),
-    url("../fonts/FoundersGrotesk-RegularItalic.ttf") format("truetype"), url("../fonts/FoundersGrotesk-RegularItalic.svg#FoundersGrotesk-RegularItalic") format("svg");
+  src: url("../fonts/FoundersGrotesk-RegularItalic.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/FoundersGrotesk-RegularItalic.woff2") format("woff2"),
+    url("../fonts/FoundersGrotesk-RegularItalic.woff") format("woff"),
+    url("../fonts/FoundersGrotesk-RegularItalic.ttf") format("truetype"),
+    url("../fonts/FoundersGrotesk-RegularItalic.svg#FoundersGrotesk-RegularItalic")
+      format("svg");
   font-weight: normal;
   font-style: italic;
   font-display: swap;
@@ -41,8 +57,13 @@
 @font-face {
   font-family: "Founders Grotesk Mono";
   src: url("../fonts/FoundersGroteskMono-Regular.eot");
-  src: url("../fonts/FoundersGroteskMono-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/FoundersGroteskMono-Regular.woff2") format("woff2"), url("../fonts/FoundersGroteskMono-Regular.woff") format("woff"),
-    url("../fonts/FoundersGroteskMono-Regular.ttf") format("truetype"), url("../fonts/FoundersGroteskMono-Regular.svg#FoundersGroteskMono-Regular") format("svg");
+  src: url("../fonts/FoundersGroteskMono-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/FoundersGroteskMono-Regular.woff2") format("woff2"),
+    url("../fonts/FoundersGroteskMono-Regular.woff") format("woff"),
+    url("../fonts/FoundersGroteskMono-Regular.ttf") format("truetype"),
+    url("../fonts/FoundersGroteskMono-Regular.svg#FoundersGroteskMono-Regular")
+      format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -203,7 +224,7 @@ p:empty {
 
 /* Normal Button */
 .btn {
-  font-size: 1rem;
+  font-size: 1.875rem;
   line-height: 1;
   letter-spacing: 0.03em;
   border: 2px solid transparent;
@@ -217,6 +238,7 @@ p:empty {
   display: grid;
   grid-template-columns: 1fr;
   place-items: center;
+  font-family: var(--fontfamily-manuka);
 }
 .btn > svg,
 .btn span {
@@ -224,11 +246,23 @@ p:empty {
   grid-row: 1;
 }
 .btn span {
-  padding: 0.253em;
+  padding: 0.553em;
 }
 .btn:hover {
   background: var(--offwhite-color);
   color: var(--primary-color);
+}
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1.85rem;
+}
+.simple-btn {
+  font-family: "Founders Grotesk mono";
+  text-transform: uppercase;
+  font-size: 1.18rem;
+  border-bottom: 1px solid;
+  padding-bottom: 0.3rem;
 }
 
 /* Dark Button */
@@ -323,6 +357,15 @@ section:is(:not(.section-hero), .no-background) {
   padding: 9rem 0;
 }
 
+.spacer-large {
+  min-height: 11.875rem;
+}
+.spacer-medium {
+  min-height: 10rem;
+}
+.spacer-small {
+  min-height: 7.5rem;
+}
 .w-10ch {
   max-width: 10ch;
 }
@@ -354,7 +397,58 @@ section:is(:not(.section-hero), .no-background) {
   max-width: 65ch;
 }
 
+/* Swiper */
+.mySwiper {
+  width: 100%;
+  padding: 40px 0;
+  overflow: visible;
+  cursor: grab;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  top: auto;
+  bottom: -40px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border-radius: 0;
+}
+
+.swiper-button-prev {
+  left: 0px;
+}
+
+.swiper-button-next {
+  right: 0px;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  display: none;
+}
+
 /* Header */
+
+.notification-bar {
+  background: var(--coral);
+  padding-block: 1rem;
+  text-align: center;
+}
+
+.notification-bar p {
+  margin-bottom: 0;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+}
+
 header {
 }
 header .header-bg {
@@ -364,6 +458,7 @@ header .navbar {
 }
 
 header .navbar-desktop {
+  gap: 1.2rem;
 }
 header .navbar-desktop li {
 }
@@ -400,9 +495,44 @@ header .navbar-desktop li a:hover {
   display: table;
   margin-left: -16rem;
 }
+.center-content {
+  padding-inline: 2rem;
+}
+.center-content h2 {
+  margin-bottom: 1.2rem;
+}
+.center-content p {
+  margin-bottom: 2.5rem;
+}
 .vertical-text {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   letter-spacing: 2px;
   text-transform: uppercase;
+  width: auto;
+}
+.right-vector img {
+  float: right;
+  margin-right: 1rem;
+  margin-top: -3rem;
+}
+.double-overlap-images .first-img {
+  float: right;
+  margin-bottom: -6rem;
+  width: 60%;
+}
+.double-overlap-images .second-img {
+  width: 80%;
+}
+.left-small-img img {
+  padding-top: 11.25rem;
+}
+.marquee-section {
+  background: var(--sandgrain);
+}
+.section-col-2 .left-col .center-content {
+  padding-top: 3.125rem;
+}
+.section-col-2 .right-col .center-content {
+  padding-top: 9.375rem;
 }

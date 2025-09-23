@@ -20,14 +20,15 @@
     <meta name="theme-color" content="#f7ece0" />
 
     <link rel="canonical" href="" />
-    <link rel="icon" href="" type="image/svg+xml" />
+    <link rel="icon" href="assets/images/footer-logo.png" type="image/svg+xml" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link href="assets/css/style.css" rel="stylesheet" />
   </head>
   <body>
     <div class="notification-bar">
       <div class="container">
-        <p>Now open for stays and dining. Book your escape today.</p>
+        <p>Announcement goes here with any potential news or Offers. Ability to link.</p>
       </div>
     </div>
     <header>
@@ -122,7 +123,6 @@
       </section>
       <section class="section-content">
         <div class="container">
-          <!-- Row 1 (Heading + Center Image) -->
           <div class="row justify-content-center text-center">
             <div class="col-md-6 mb-4">
               <h2 class="mb-3">Rest easy lorem ipsum dolor sit adipiscing , sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
@@ -134,49 +134,68 @@
               </figure>
             </div>
           </div>
-          <!-- Row 2 (Image Left + Text Right) -->
-          <div class="row align-items-end mb-5">
-            <div class="col-md-1">
+          <div class="spacer-medium"></div>
+          <div class="row">
+            <div class="col-md-1 d-flex">
               <span class="vertical-text">HOTEL</span>
             </div>
-            <div class="col-md-5 mb-3 mb-md-0">
-              <img src="assets/images/bedroom-img.jpg" alt="Bedroom" class="img-fluid rounded">
+            <div class="col-md-5">
+              <figure>
+                <img src="assets/images/bedroom-img.jpg" alt="Bedroom" class="img-fluid rounded">
+              </figure>
             </div>
-            <div class="col-md-4 text-center text-md-start">
-              <img src="assets/images/suit-vector.png" alt="Suit Vector" class="suit-vector-img">
-              <h2 class="mb-3">LAY YOUR HEAD</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-              <a href="#" class="simple-btn">View the Rooms</a>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-4 d-flex flex-column justify-content-between">
+              <figure class="right-vector">
+                <img src="assets/images/suit-vector.png" alt="Suit Vector" class="suit-vector-img">
+              </figure>
+              <div class="center-content p-0">
+                <h2 class="mb-3">LAY YOUR HEAD</h2>
+                <p>Rest easy lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini m veniam, quis nostrud exercitation ullamco.</p>
+                <a href="#" class="simple-btn">View the Rooms</a>
+              </div>
+            </div>
+            <div class="col-md-1">
             </div>
           </div>
-          <!-- Row 3 (Text Left + Multiple Small Images Right) -->
-          <div class="row align-items-center mb-5">
-            <div class="col-md-4">
+          <div class="spacer-medium"></div>
+          <div class="row mb-5">
+            <div class="col-md-1"></div>
+            <div class="col-md-4 d-flex flex-column justify-content-between">
+              <figure class="text-center left-small-img">
               <img src="assets/images/girl-img-small.jpg" alt="Girl Img">
+              </figure>
+              <div class="center-content ps-0">
               <h2 class="mb-3">PULL UP A CHAIR</h2>
               <p>Rest easy lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation  minim ullamco.</p>
               <a href="#" class="simple-btn">Restaurant & Bar</a>
+              </div>
             </div>
+            <div class="col-md-2"></div>
             <div class="col-md-5">
-              <div class="double-overlap-images">
-                  <img src="assets/images/food-img.jpg" alt="Food Img" class="w-100">
-                  <img src="assets/images/drink-img.jpg" alt="Drink Img" class="w-100">
-                  <span class="vertical-text">Restaurant & bar</span>
+              <div class="double-overlap-images position-relative">
+                  <img src="assets/images/food-img.jpg" alt="Food Img" class="first-img">
+                  <img src="assets/images/drink-img.jpg" alt="Drink Img" class="second-img">
+                  <span class="vertical-text position-absolute bottom-0 end-0">Restaurant & bar</span>
               </div>
             </div>
           </div>
-          <!-- Row 4 (Illustration + Heading Center) -->
-          <div class="row text-center justify-content-center">
-            <div class="col-md-12 mb-4">
-              <img src="assets/images/Illustration-structure.png" alt="Illustration" class="img-fluid mx-auto d-block">
+          <div class="spacer-medium"></div>
+          <div class="row text-center justify-content-center position-relative">
+            <div class="col-md-10 mb-4">
+              <img src="assets/images/Illustration-structure.png" alt="Illustration" class="w-100">
             </div>
+            <div class="spacer-small"></div>
             <div class="col-md-4">
             <h2 class="mb-3">STRETCH YOUR LEGS</h2>
             <p>Rest easy lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            <div class="button-wrapper">
             <a href="#" class="simple-btn">Amenities</a>
             <a href="#" class="simple-btn">Neighborhood</a>
             </div>
-            <span class="vertical-text">Grounds</span>
+            </div>
+            <span class="vertical-text position-absolute start-0 bottom-0">Grounds</span>
           </div>
         </div>
       </section>
@@ -209,21 +228,23 @@
       <section class="section-col-2 background-light">
         <div class="container">
           <div class="row justify-content-evenly text-center">
-            <div class="col-md-4">
+            <div class="col-md-4 d-flex flex-column justify-content-between gap-5">
                 <figure>
                   <img src="assets/images/swim-club-img.jpg" alt="Swim Club Img">
                 </figure>
                 <div class="center-content">
                   <h2>Swim Club</h2>
                   <p>Rest easy lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                  <div class="button-wrapper">
                   <a href="#" class="simple-btn">Day Pass</a>
                   <a href="#" class="simple-btn">Cabanas</a>
                   <a href="#" class="simple-btn">More Info</a>
+                  </div>
                 </div>
             </div>
             <div class="col-md-5">
               <figure>
-                <img src="assets/images/swim-club-girl.jpg" alt="Swim Club Girl Img">
+                <img src="assets/images/swim-club-girl.jpg" alt="Swim Club Girl Img" class="w-100">
               </figure>
             </div>
           </div>
@@ -263,10 +284,10 @@
       </section>
       <section class="section-col-2">
         <div class="container">
-          <div class="row justify-content-around text-center">
-            <div class="col-md-4">
+          <div class="row justify-content-around text-center align-items-end position-relative">
+            <div class="col-md-4 left-col">
                 <figure>
-                  <img src="assets/images/gatherings-img.jpg" alt="Gatherings Img">
+                  <img src="assets/images/gatherings-img.jpg" alt="Gatherings Img" class="w-100">
                 </figure>
                 <div class="center-content">
                   <h2>Gatherings</h2>
@@ -274,9 +295,9 @@
                   <a href="#" class="simple-btn">Plan Your Event</a>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 right-col">
               <figure>
-                <img src="assets/images/happenings-img.jpg" alt="Happenings Img">
+                <img src="assets/images/happenings-img.jpg" alt="Happenings Img" class="w-100">
               </figure>
               <div class="center-content">
                   <h2>Happenings</h2>
@@ -284,12 +305,47 @@
                   <a href="#" class="simple-btn">View All Events</a>
               </div>
             </div>
+            <span class="vertical-text position-absolute bottom-0 end-0">EVENTS</span>
           </div>
         </div>
       </section>
-      <section class="section-slider background-dark">
+      <section class="section-slider background-dark overflow-hidden">
         <div class="container">
-          <div class="row"></div>
+          <div class="row">
+            <div class="center-content p-0">
+              <a href="#" class="simple-btn">@saltranchhotel</a>
+            </div>
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><img class="w-100" src="assets/images/slide-1.jpg" /></div>
+                <div class="swiper-slide"><img class="w-100" src="assets/images/slide-2.jpg" /></div>
+                <div class="swiper-slide"><img class="w-100" src="assets/images/slide-3.jpg" /></div>
+                <div class="swiper-slide"><img class="w-100" src="assets/images/slide-4.jpg" /></div>
+                <div class="swiper-slide"><img class="w-100" src="assets/images/slide-5.jpg" /></div>
+                <div class="swiper-slide"><img class="w-100" src="assets/images/slide-1.jpg" /></div>
+                <div class="swiper-slide"><img class="w-100" src="assets/images/slide-6.jpg" /></div>
+                <div class="swiper-slide"><img class="w-100" src="assets/images/slide-2.jpg" /></div>
+                <div class="swiper-slide"><img class="w-100" src="assets/images/slide-3.jpg" /></div>
+                <div class="swiper-slide"><img class="w-100" src="assets/images/slide-4.jpg" /></div>
+                <div class="swiper-slide"><img class="w-100" src="assets/images/slide-5.jpg" /></div>
+              </div>
+              <div class="swiper-button-prev">
+                <svg width="36" height="26" viewBox="0 0 36 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11.5781 25.5703C11.5791 21.3799 6.5956 13.0706 -0.00898481 13.0706" stroke="#493730" stroke-width="3"/>
+                  <path d="M4.30469 13.0977H35.8273" stroke="#493730" stroke-width="3"/>
+                  <path d="M11.5859 0.570312C11.587 4.76075 6.60341 13.07 -0.00117449 13.07" stroke="#493730" stroke-width="3"/>
+                </svg>
+              </div>
+              <div class="swiper-button-next">
+                <svg width="37" height="26" viewBox="0 0 37 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24.915 0.570313C24.914 4.76075 29.8976 13.0701 36.5021 13.0701" stroke="#493730" stroke-width="3"/>
+                  <path d="M32.1885 13.043L0.665829 13.043" stroke="#493730" stroke-width="3"/>
+                  <path d="M24.9072 25.5703C24.9062 21.3799 29.8898 13.0706 36.4943 13.0706" stroke="#493730" stroke-width="3"/>
+                </svg>
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
     </main>
@@ -300,6 +356,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="assets/js/custom.js"></script>
   </body>
 </html>
