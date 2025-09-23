@@ -119,21 +119,24 @@
   text-shadow: none;
 }
 
-/* Lenis */
+/*------Locomotive Css Start-----------*/
 html.lenis,
 html.lenis body {
   height: auto;
+}
+.lenis.lenis-smooth {
   scroll-behavior: auto !important;
 }
 .lenis.lenis-smooth [data-lenis-prevent] {
   overscroll-behavior: contain;
 }
 .lenis.lenis-stopped {
-  overflow: clip;
+  overflow: hidden;
 }
 .lenis.lenis-smooth iframe {
   pointer-events: none;
 }
+/*------Locomotive Css End-----------*/
 
 /* Base */
 html {

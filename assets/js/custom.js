@@ -1,3 +1,7 @@
+(function () {
+  const locomotiveScroll = new LocomotiveScroll();
+})();
+
 document.addEventListener("DOMContentLoaded", () => {
   initMarquee("#marquee", 1);
   initMarquee("#marquee2", -1);
