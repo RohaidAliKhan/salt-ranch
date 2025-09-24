@@ -176,136 +176,269 @@
           <div class="row">
             <div class="col-md-12">
               <div class="gallery-wrapper">
-
-                <!-- Filters -->
-                <div class="filters mb-3 text-center d-flex justify-content-center align-items-center gap-2">
-                  <p class="m-0 me-2">FILTER:</p>
-                  <button data-filter="rooms" class="active btn btn-sm btn-outline-dark">Rooms</button>
-                  <button data-filter="hotel" class="btn btn-sm btn-outline-dark">Hotel</button>
-                  <button data-filter="restaurant" class="btn btn-sm btn-outline-dark">Restaurant & Bar</button>
-                  <button data-filter="swim" class="btn btn-sm btn-outline-dark">Swim Club</button>
-                </div>
-
-                <div class="spacer-small"></div>
-
-                <!-- Grid -->
-                <div class="gallery-grid">
-
-                  <div class="row align-items-end">
-                    <div class="col-md-7">
-                      <figure class="gallery-item" data-category="rooms hotel">
-                        <img src="assets/images/gallery-img1.jpg" alt="Gallery Img 1" class="w-100">
-                      </figure>
-                      <p>This would be a short caption</p>
+                <div data-filter-group="" data-filter-target-match="multi" data-filter-name-match="single" role="group" class="filter-group">
+                  <div class="filter-buttons">
+                    <button data-filter-target="all" data-filter-status="active" aria-pressed="false" aria-controls="filter-list" class="filter-btn">All</button>
+                    <button data-filter-target="orange" data-filter-status="not-active" aria-pressed="false" aria-controls="filter-list" class="filter-btn">Orange</button>
+                    <button data-filter-target="blue" data-filter-status="not-active" aria-pressed="false" aria-controls="filter-list" class="filter-btn">Blue</button>
+                    <button data-filter-target="green" data-filter-status="not-active" aria-pressed="false" aria-controls="filter-list" class="filter-btn">Green</button>
+                    <button data-filter-target="brown" data-filter-status="not-active" aria-pressed="false" aria-controls="filter-list" class="filter-btn">Brown</button>
+                    <button data-filter-target="reset" data-filter-status="not-active" aria-pressed="false" aria-controls="filter-list" class="reset-btn">Reset</button>
+                  </div>
+                  <div aria-live="polite" role="list" class="filter-list">
+                    <div role="listitem" data-filter-name="" data-filter-status="active" class="filter-list__item">
+                      <div class="demo-card">
+                        <div class="demo-card__top">
+                          <div class="demo-card__visual">
+                            <div class="demo-card__visual-before"></div>
+                            <span class="demo-card__emoji">🐸</span>
+                          </div>
+                          <div class="demo-card__tags-collection">
+                            <div class="demo-card__tags-list">
+                              <div data-filter-name-collect="green" class="demo-card__tags-item">
+                                <p class="demo-card__tags-item-p">Green</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="demo-card__bottom">
+                          <h3 class="demo-card__h3">Frog</h3>
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-md-2"></div>
-                    <div class="col-md-3">
-                      <figure class="gallery-item" data-category="hotel">
-                        <img src="assets/images/saltranch-vector.png" alt="Salt Ranch Circle Vector">
-                      </figure>
+                    <div role="listitem" data-filter-name="" data-filter-status="active" class="filter-list__item">
+                      <div class="demo-card">
+                        <div class="demo-card__top">
+                          <div class="demo-card__visual">
+                            <div class="demo-card__visual-before"></div>
+                            <span class="demo-card__emoji">🦜</span>
+                          </div>
+                          <div class="demo-card__tags-collection">
+                            <div class="demo-card__tags-list">
+                              <div data-filter-name-collect="green" class="demo-card__tags-item">
+                                <p class="demo-card__tags-item-p">Green</p>
+                              </div>
+                              <div data-filter-name-collect="orange" class="demo-card__tags-item">
+                                <p class="demo-card__tags-item-p">Orange</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="demo-card__bottom">
+                          <h3 class="demo-card__h3">Parrot</h3>
+                        </div>
+                      </div>
+                    </div>
+                    <div role="listitem" data-filter-name="" data-filter-status="active" class="filter-list__item">
+                      <div class="demo-card">
+                        <div class="demo-card__top">
+                          <div class="demo-card__visual">
+                            <div class="demo-card__visual-before"></div>
+                            <span class="demo-card__emoji">🦎</span>
+                          </div>
+                          <div class="demo-card__tags-collection">
+                            <div class="demo-card__tags-list">
+                              <div data-filter-name-collect="green" class="demo-card__tags-item">
+                                <p class="demo-card__tags-item-p">Green</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="demo-card__bottom">
+                          <h3 class="demo-card__h3">Gecko</h3>
+                        </div>
+                      </div>
+                    </div>
+                    <div role="listitem" data-filter-name="" data-filter-status="active" class="filter-list__item">
+                      <div class="demo-card">
+                        <div class="demo-card__top">
+                          <div class="demo-card__visual">
+                            <div class="demo-card__visual-before"></div>
+                            <span class="demo-card__emoji">🦄</span>
+                          </div>
+                          <div class="demo-card__tags-collection">
+                            <div class="demo-card__tags-list">
+                              <div data-filter-name-collect="orange" class="demo-card__tags-item">
+                                <p class="demo-card__tags-item-p">Orange</p>
+                              </div>
+                              <div data-filter-name-collect="blue" class="demo-card__tags-item">
+                                <p class="demo-card__tags-item-p">Blue</p>
+                              </div>
+                              <div data-filter-name-collect="green" class="demo-card__tags-item">
+                                <p class="demo-card__tags-item-p">Green</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="demo-card__bottom">
+                          <h3 class="demo-card__h3">Unicorn</h3>
+                        </div>
+                      </div>
+                    </div>
+                    <div role="listitem" data-filter-name="" data-filter-status="active" class="filter-list__item">
+                      <div class="demo-card">
+                        <div class="demo-card__top">
+                          <div class="demo-card__visual">
+                            <div class="demo-card__visual-before"></div>
+                            <span class="demo-card__emoji">🐳</span>
+                          </div>
+                          <div class="demo-card__tags-collection">
+                            <div class="demo-card__tags-list">
+                              <div data-filter-name-collect="blue" class="demo-card__tags-item">
+                                <p class="demo-card__tags-item-p">Blue</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="demo-card__bottom">
+                          <h3 class="demo-card__h3">Whale</h3>
+                        </div>
+                      </div>
+                    </div>
+                    <div role="listitem" data-filter-name="" data-filter-status="active" class="filter-list__item">
+                      <div class="demo-card">
+                        <div class="demo-card__top">
+                          <div class="demo-card__visual">
+                            <div class="demo-card__visual-before"></div>
+                            <span class="demo-card__emoji">🦞</span>
+                          </div>
+                          <div class="demo-card__tags-collection">
+                            <div class="demo-card__tags-list">
+                              <div data-filter-name-collect="orange" class="demo-card__tags-item">
+                                <p class="demo-card__tags-item-p">Orange</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="demo-card__bottom">
+                          <h3 class="demo-card__h3">Lobster</h3>
+                        </div>
+                      </div>
+                    </div>
+                    <div role="listitem" data-filter-name="" data-filter-status="active" class="filter-list__item">
+                      <div class="demo-card">
+                        <div class="demo-card__top">
+                          <div class="demo-card__visual">
+                            <div class="demo-card__visual-before"></div>
+                            <span class="demo-card__emoji">🐅</span>
+                          </div>
+                          <div class="demo-card__tags-collection">
+                            <div class="demo-card__tags-list">
+                              <div data-filter-name-collect="orange" class="demo-card__tags-item">
+                                <p class="demo-card__tags-item-p">Orange</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="demo-card__bottom">
+                          <h3 class="demo-card__h3">Tiger</h3>
+                        </div>
+                      </div>
+                    </div>
+                    <div role="listitem" data-filter-name="" data-filter-status="active" class="filter-list__item">
+                      <div class="demo-card">
+                        <div class="demo-card__top">
+                          <div class="demo-card__visual">
+                            <div class="demo-card__visual-before"></div>
+                            <span class="demo-card__emoji">🦁</span>
+                          </div>
+                          <div class="demo-card__tags-collection">
+                            <div class="demo-card__tags-list">
+                              <div data-filter-name-collect="orange" class="demo-card__tags-item">
+                                <p class="demo-card__tags-item-p">Orange</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="demo-card__bottom">
+                          <h3 class="demo-card__h3">Lion</h3>
+                        </div>
+                      </div>
+                    </div>
+                    <div role="listitem" data-filter-name="" data-filter-status="active" class="filter-list__item">
+                      <div class="demo-card">
+                        <div class="demo-card__top">
+                          <div class="demo-card__visual">
+                            <div class="demo-card__visual-before"></div>
+                            <span class="demo-card__emoji">🐛</span>
+                          </div>
+                          <div class="demo-card__tags-collection">
+                            <div class="demo-card__tags-list">
+                              <div data-filter-name-collect="green" class="demo-card__tags-item">
+                                <p class="demo-card__tags-item-p">Green</p>
+                              </div>
+                              <div data-filter-name-collect="orange" class="demo-card__tags-item">
+                                <p class="demo-card__tags-item-p">Orange</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="demo-card__bottom">
+                          <h3 class="demo-card__h3">Caterpillar</h3>
+                        </div>
+                      </div>
+                    </div>
+                    <div role="listitem" data-filter-name="" data-filter-status="active" class="filter-list__item">
+                      <div class="demo-card">
+                        <div class="demo-card__top">
+                          <div class="demo-card__visual">
+                            <div class="demo-card__visual-before"></div>
+                            <span class="demo-card__emoji">🦋</span>
+                          </div>
+                          <div class="demo-card__tags-collection">
+                            <div class="demo-card__tags-list">
+                              <div data-filter-name-collect="blue" class="demo-card__tags-item">
+                                <p class="demo-card__tags-item-p">Blue</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="demo-card__bottom">
+                          <h3 class="demo-card__h3">Butterfly</h3>
+                        </div>
+                      </div>
+                    </div>
+                    <div role="listitem" data-filter-name="" data-filter-status="active" class="filter-list__item">
+                      <div class="demo-card">
+                        <div class="demo-card__top">
+                          <div class="demo-card__visual">
+                            <div class="demo-card__visual-before"></div>
+                            <span class="demo-card__emoji">🐻</span>
+                          </div>
+                          <div class="demo-card__tags-collection">
+                            <div class="demo-card__tags-list">
+                              <div data-filter-name-collect="brown" class="demo-card__tags-item">
+                                <p class="demo-card__tags-item-p">Brown</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="demo-card__bottom">
+                          <h3 class="demo-card__h3">Brown Bear</h3>
+                        </div>
+                      </div>
+                    </div>
+                    <div role="listitem" data-filter-name="" data-filter-status="active" class="filter-list__item">
+                      <div class="demo-card">
+                        <div class="demo-card__top">
+                          <div class="demo-card__visual">
+                            <div class="demo-card__visual-before"></div>
+                            <span class="demo-card__emoji">🦇</span>
+                          </div>
+                          <div class="demo-card__tags-collection">
+                            <div class="demo-card__tags-list">
+                              <div data-filter-name-collect="brown" class="demo-card__tags-item">
+                                <p class="demo-card__tags-item-p">Brown</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="demo-card__bottom">
+                          <h3 class="demo-card__h3">Bat</h3>
+                        </div>
+                      </div>
                     </div>
                   </div>
-
-                  <div class="spacer-small"></div>
-                  <div class="row align-items-end">
-                    <div class="col-md-6"></div>
-                    <div class="col-md-6">
-                      <figure class="gallery-item" data-category="restaurant">
-                        <img src="assets/images/gallery-img2.jpg" alt="Gallery Img 2" class="w-100">
-                      </figure>
-                      <p>This would be a short caption</p>
-                    </div>
-                  </div>
-
-                  <div class="row align-items-center">
-                    <div class="col-md-7">
-                      <figure class="gallery-item" data-category="rooms">
-                        <img src="assets/images/gallery-img3.jpg" alt="Gallery Img 3">
-                      </figure>
-                      <div class="spacer-large"></div>
-                      <figure class="gallery-item" data-category="restaurant">
-                        <img src="assets/images/gallery-img5.jpg" alt="Gallery Img 5" class="w-100">
-                      </figure>
-                      <p>This would be a short caption</p>
-                    </div>
-                    <div class="col-md-5 text-center">
-                      <figure class="gallery-item" data-category="swim">
-                        <img src="assets/images/gallery-img4.jpg" alt="Gallery Img 4">
-                      </figure>
-                    </div>
-                  </div>
-
-                  <div class="spacer-small"></div>
-                  <div class="row align-items-end">
-                    <div class="col-md-6">
-                      <figure class="gallery-item" data-category="hotel">
-                        <img src="assets/images/saltranch-vector.png" alt="Salt Ranch Vector Logo" class="position-absolute" style="right:150px; top:-150px;">
-                      </figure>
-                      <div class="spacer-large"></div>
-                      <figure class="gallery-item" data-category="swim">
-                        <img src="assets/images/gallery-img7.jpg" alt="Gallery Img 7" style="margin-bottom:-150px;">
-                      </figure>
-                    </div>
-                    <div class="col-md-6">
-                      <figure class="gallery-item" data-category="rooms">
-                        <img src="assets/images/gallery-img6.jpg" alt="Gallery Img 6">
-                      </figure>
-                    </div>
-                  </div>
-
-                  <div class="spacer-large"></div>
-                  <div class="spacer-small"></div>
-                  <div class="row">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-8">
-                      <figure class="gallery-item" data-category="restaurant">
-                        <img src="assets/images/gallery-img8.jpg" alt="Gallery Img 8" class="w-100">
-                      </figure>
-                      <p>This would be a short caption</p>
-                    </div>
-                    <div class="col-md-1"></div>
-                  </div>
-
-                  <div class="row pt-5">
-                    <div class="col-md-3">
-                      <figure class="gallery-item" data-category="swim">
-                        <img src="assets/images/gallery-img9.jpg" alt="Gallery Img 9">
-                      </figure>
-                    </div>
-                    <div class="col-md-9"></div>
-                  </div>
-
-                  <div class="spacer-small"></div>
-                  <div class="row">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-6">
-                      <figure class="gallery-item" data-category="hotel rooms">
-                        <img src="assets/images/gallery-img10.jpg" alt="Gallery Img 10" class="w-100">
-                      </figure>
-                    </div>
-                    <div class="col-md-5"></div>
-                  </div>
-
-                  <div class="spacer-small"></div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <figure class="gallery-item" data-category="rooms">
-                        <img src="assets/images/gallery-img11.jpg" alt="Gallery Img 11">
-                      </figure>
-                      <p>This would be a short caption</p>
-                      <div class="spacer-medium"></div>
-                      <figure class="gallery-item text-center" data-category="hotel">
-                        <img src="assets/images/saltranch-vector.png" alt="Salt Ranch Vector Logo">
-                      </figure>
-                    </div>
-                    <div class="col-md-6 col-gallery-pt">
-                      <figure class="gallery-item" data-category="restaurant">
-                        <img src="assets/images/gallery-img12.jpg" alt="Gallery Img 12">
-                      </figure>
-                      <p>This would be a short caption</p>
-                    </div>
-                  </div>
-
                 </div>
               </div>
             </div>
