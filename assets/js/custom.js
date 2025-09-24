@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initMarquee("#marquee2", -1);
   initSwiper();
   initCustomSwiper();
+  initGalleryFilter();
 
   const altElements = document.querySelectorAll([
     ".heading-style-h1",
@@ -94,5 +95,49 @@ function initCustomSwiper() {
       el: ".swiper-pagination",
       type: "fraction",
     },
+  });
+}
+
+function initGalleryFilter() {
+  const filterContainer = document.querySelector(".filters");
+  const gallery = document.querySelector(".gallery-grid");
+
+  if (!filterContainer || !gallery) return;
+
+  const buttons = filterContainer.querySelectorAll("button");
+  const items = gallery.querySelectorAll("figure");
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      filterContainer
+        .querySelectorAll("button")
+        .forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const filter = btn.getAttribute("data-filter");
+
+      items.forEach((item) => {
+        const categories = item.getAttribute("data-category")?.split(" ") || [];
+
+        if (filter === "all" || categories.includes(filter)) {
+          item.style.visibility = "visible"; // dikhao
+          item.style.height = "auto";
+        } else {
+          item.style.visibility = "hidden";
+          item.style.height = "0";
+        }
+
+        const caption = item.nextElementSibling;
+        if (caption && caption.tagName === "P") {
+          if (filter === "all" || categories.includes(filter)) {
+            caption.style.visibility = "visible";
+            caption.style.height = "auto";
+          } else {
+            caption.style.visibility = "hidden";
+            caption.style.height = "0";
+          }
+        }
+      });
+    });
   });
 }
