@@ -120,7 +120,7 @@ function initGalleryFilter() {
         const categories = item.getAttribute("data-category")?.split(" ") || [];
 
         if (filter === "all" || categories.includes(filter)) {
-          item.style.visibility = "visible"; // dikhao
+          item.style.visibility = "visible";
           item.style.height = "auto";
         } else {
           item.style.visibility = "hidden";
