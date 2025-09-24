@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initMarquee("#marquee", 1);
   initMarquee("#marquee2", -1);
   initSwiper();
+  initCustomSwiper();
 
   const altElements = document.querySelectorAll([
     ".heading-style-h1",
@@ -51,29 +52,47 @@ function initMarquee(selector, speed = 1) {
 }
 
 function initSwiper() {
-  new Swiper(".mySwiper", {
-    slidesPerView: 5,
-    centeredSlides: true,
-    spaceBetween: 20,
+  document.querySelectorAll(".mySwiper").forEach(function (swiperEl) {
+    let slidesCount = swiperEl.classList.contains("swiper-three") ? 3 : 5;
+
+    new Swiper(swiperEl, {
+      slidesPerView: slidesCount,
+      centeredSlides: true,
+      spaceBetween: 20,
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: swiperEl.querySelector(".swiper-button-next"),
+        prevEl: swiperEl.querySelector(".swiper-button-prev"),
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1.5,
+        },
+        768: {
+          slidesPerView: swiperEl.classList.contains("swiper-three") ? 3 : 3.5,
+        },
+        1024: {
+          slidesPerView: slidesCount,
+        },
+      },
+    });
+  });
+}
+
+function initCustomSwiper() {
+  new Swiper(".custom-swiper", {
     loop: true,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
     navigation: {
-      nextEl: ".mySwiper .swiper-button-next",
-      prevEl: ".mySwiper .swiper-button-prev",
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
     },
-    breakpoints: {
-      0: {
-        slidesPerView: 1.5,
-      },
-      768: {
-        slidesPerView: 3.5,
-      },
-      1024: {
-        slidesPerView: 5,
-      },
+    pagination: {
+      el: ".swiper-pagination",
+      type: "fraction",
     },
   });
 }
