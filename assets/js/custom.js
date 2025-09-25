@@ -11,10 +11,18 @@ document.addEventListener("DOMContentLoaded", () => {
   initMutliFilterSetupMultiMatch();
   initServiceSlider();
 
-  const altElements = document.querySelectorAll([".heading-style-h1", "h1", ".heading-style-h2", "h2", ".navbar ul li a"]);
+  const altElements = document.querySelectorAll([
+    ".heading-style-h1",
+    "h1",
+    ".heading-style-h2",
+    "h2",
+  ]);
 
   altElements.forEach((el) => {
-    el.innerHTML = el.textContent.replace(/([CGJSQ123569])/gi, '<span class="alt-font">$1</span>');
+    el.innerHTML = el.textContent.replace(
+      /([CGJSQ123569])/gi,
+      '<span class="alt-font">$1</span>'
+    );
   });
 });
 
@@ -62,43 +70,54 @@ function initMobileMenu() {
     });
   }
 
-  Array.from(document.querySelectorAll("[data-dropdown-toggle]")).forEach((toggle, i) => {
-    const dd = toggle.nextElementSibling;
-    if (!dd || !dd.classList.contains("nav-dropdown")) return;
-    if (toggle._mobileDropdownInit) return;
-    toggle._mobileDropdownInit = true;
+  Array.from(document.querySelectorAll("[data-dropdown-toggle]")).forEach(
+    (toggle, i) => {
+      const dd = toggle.nextElementSibling;
+      if (!dd || !dd.classList.contains("nav-dropdown")) return;
+      if (toggle._mobileDropdownInit) return;
+      toggle._mobileDropdownInit = true;
 
-    toggle.setAttribute("aria-expanded", "false");
-    toggle.setAttribute("aria-haspopup", "true");
-    toggle.setAttribute("aria-controls", `dropdown-${i}`);
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-haspopup", "true");
+      toggle.setAttribute("aria-controls", `dropdown-${i}`);
 
-    dd.setAttribute("id", `dropdown-${i}`);
-    dd.setAttribute("role", "menu");
-    dd.querySelectorAll(".nav-dropdown__link").forEach((link) => link.setAttribute("role", "menuitem"));
+      dd.setAttribute("id", `dropdown-${i}`);
+      dd.setAttribute("role", "menu");
+      dd.querySelectorAll(".nav-dropdown__link").forEach((link) =>
+        link.setAttribute("role", "menuitem")
+      );
 
-    toggle.addEventListener("click", () => {
-      const open = toggle.dataset.dropdownToggle === "open";
-      Array.from(document.querySelectorAll("[data-dropdown-toggle]")).forEach((other) => {
-        if (other !== toggle) {
-          other.dataset.dropdownToggle = "closed";
-          other.setAttribute("aria-expanded", "false");
-          if (other === document.activeElement) other.blur();
-        }
+      toggle.addEventListener("click", () => {
+        const open = toggle.dataset.dropdownToggle === "open";
+        Array.from(document.querySelectorAll("[data-dropdown-toggle]")).forEach(
+          (other) => {
+            if (other !== toggle) {
+              other.dataset.dropdownToggle = "closed";
+              other.setAttribute("aria-expanded", "false");
+              if (other === document.activeElement) other.blur();
+            }
+          }
+        );
+        toggle.dataset.dropdownToggle = open ? "closed" : "open";
+        toggle.setAttribute("aria-expanded", !open);
+        if (open && toggle === document.activeElement) toggle.blur();
       });
-      toggle.dataset.dropdownToggle = open ? "closed" : "open";
-      toggle.setAttribute("aria-expanded", !open);
-      if (open && toggle === document.activeElement) toggle.blur();
-    });
-  });
+    }
+  );
 }
 
 function initDesktopDropdowns() {
-  const toggles = Array.from(document.querySelectorAll("[data-dropdown-toggle]"));
-  const links = Array.from(document.querySelectorAll(".nav-link:not([data-dropdown-toggle])"));
+  const toggles = Array.from(
+    document.querySelectorAll("[data-dropdown-toggle]")
+  );
+  const links = Array.from(
+    document.querySelectorAll(".nav-link:not([data-dropdown-toggle])")
+  );
 
   toggles.forEach((toggle, i) => {
     const dd = toggle.nextElementSibling;
-    if (!dd || !dd.classList.contains("nav-dropdown") || toggle._desktopInit) return;
+    if (!dd || !dd.classList.contains("nav-dropdown") || toggle._desktopInit)
+      return;
     toggle._desktopInit = true;
 
     toggle.setAttribute("aria-expanded", "false");
@@ -108,7 +127,9 @@ function initDesktopDropdowns() {
     dd.setAttribute("id", `desktop-dropdown-${i}`);
     dd.setAttribute("role", "menu");
     dd.setAttribute("aria-hidden", "true");
-    dd.querySelectorAll(".nav-dropdown__link").forEach((link) => link.setAttribute("role", "menuitem"));
+    dd.querySelectorAll(".nav-dropdown__link").forEach((link) =>
+      link.setAttribute("role", "menuitem")
+    );
 
     toggle.addEventListener("click", (e) => {
       e.preventDefault();
@@ -275,7 +296,9 @@ function initSwiper() {
           slidesPerView: 1.5,
         },
         768: {
-          slidesPerView: swiperEl.classList.contains("swiper-three") ? 3.5 : 3.5,
+          slidesPerView: swiperEl.classList.contains("swiper-three")
+            ? 3.5
+            : 3.5,
         },
         1024: {
           slidesPerView: slidesCount,
@@ -307,8 +330,14 @@ function initMutliFilterSetupMultiMatch() {
   const groups = [...document.querySelectorAll("[data-filter-group]")];
 
   groups.forEach((group) => {
-    const targetMatch = (group.getAttribute("data-filter-target-match") || "multi").trim().toLowerCase(); // 'single' | 'multi'
-    const nameMatch = (group.getAttribute("data-filter-name-match") || "multi").trim().toLowerCase(); // 'single' | 'multi'
+    const targetMatch = (
+      group.getAttribute("data-filter-target-match") || "multi"
+    )
+      .trim()
+      .toLowerCase(); // 'single' | 'multi'
+    const nameMatch = (group.getAttribute("data-filter-name-match") || "multi")
+      .trim()
+      .toLowerCase(); // 'single' | 'multi'
 
     const buttons = [...group.querySelectorAll("[data-filter-target]")];
     const items = [...group.querySelectorAll("[data-filter-name]")];
@@ -320,19 +349,24 @@ function initMutliFilterSetupMultiMatch() {
       const seen = new Set(),
         tokens = [];
       collectors.forEach((c) => {
-        const v = (c.getAttribute("data-filter-name-collect") || "").trim().toLowerCase();
+        const v = (c.getAttribute("data-filter-name-collect") || "")
+          .trim()
+          .toLowerCase();
         if (v && !seen.has(v)) {
           seen.add(v);
           tokens.push(v);
         }
       });
-      if (tokens.length) item.setAttribute("data-filter-name", tokens.join(" "));
+      if (tokens.length)
+        item.setAttribute("data-filter-name", tokens.join(" "));
     });
 
     // Cache item tokens
     const itemTokens = new Map();
     items.forEach((el) => {
-      const raw = (el.getAttribute("data-filter-name") || "").trim().toLowerCase();
+      const raw = (el.getAttribute("data-filter-name") || "")
+        .trim()
+        .toLowerCase();
       const tokens = raw ? raw.split(/\s+/).filter(Boolean) : [];
       itemTokens.set(el, new Set(tokens));
     });
@@ -397,7 +431,11 @@ function initMutliFilterSetupMultiMatch() {
 
     // 🔹 NEW: function to reindex only active items
     function reindexItems(container) {
-      const activeItems = [...container.querySelectorAll('.filter-list__item[data-filter-status="active"]')];
+      const activeItems = [
+        ...container.querySelectorAll(
+          '.filter-list__item[data-filter-status="active"]'
+        ),
+      ];
       activeItems.forEach((item, i) => {
         // remove old position classes
         item.className = item.className.replace(/\bposition-\d+\b/g, "").trim();
@@ -447,18 +485,22 @@ function initMutliFilterSetupMultiMatch() {
 
       // Update buttons
       buttons.forEach((btn) => {
-        const t = (btn.getAttribute("data-filter-target") || "").trim().toLowerCase();
+        const t = (btn.getAttribute("data-filter-target") || "")
+          .trim()
+          .toLowerCase();
         let on = false;
         if (t === "all") on = !hasRealActive();
         else if (t === "reset") on = hasRealActive();
-        else on = targetMatch === "single" ? activeTags === t : activeTags.has(t);
+        else
+          on = targetMatch === "single" ? activeTags === t : activeTags.has(t);
         setButtonState(btn, on);
       });
     };
 
     group.addEventListener("click", (e) => {
       const btn = e.target.closest("[data-filter-target]");
-      if (btn && group.contains(btn)) paint(btn.getAttribute("data-filter-target"));
+      if (btn && group.contains(btn))
+        paint(btn.getAttribute("data-filter-target"));
     });
 
     paint("all"); // initial render
