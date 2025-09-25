@@ -4,8 +4,8 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   initNavigation();
-  // initMarquee("#marquee", 1);
-  // initMarquee("#marquee2", -1);
+  initMarquee("#marquee", 1);
+  initMarquee("#marquee2", -1);
   initSwiper();
   initCustomSwiper();
   initMutliFilterSetupMultiMatch();
@@ -241,10 +241,6 @@ function initDesktopDropdowns() {
     }
   });
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  initNavigation();
-});
 
 function initMarquee(selector, speed = 1) {
   const marquee = document.querySelector(selector);
