@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavigation();
   initMarquee("#marquee1", 1);
   initMarquee("#marquee2", -1);
+  animateIllustration();
   initSwiper();
   initCustomSwiper();
   initMutliFilterSetupMultiMatch();
@@ -16,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "h1",
     ".heading-style-h2",
     "h2",
+    ".nav-link__label",
   ]);
 
   altElements.forEach((el) => {
@@ -25,6 +27,47 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   });
 });
+
+function animateIllustration() {
+  const svg = document.querySelector("#illustration");
+  if (!svg) return;
+
+  const clouds = svg.querySelectorAll("#clouds path");
+  const waves = svg.querySelectorAll("#waves path");
+
+  if (!clouds.length && !waves.length) return;
+
+  let tl = gsap.timeline({
+    repeat: -1,
+    yoyo: true,
+  });
+
+  if (clouds.length) {
+    tl.from(
+      clouds,
+      {
+        x: () => gsap.utils.random(-30, 30),
+        stagger: 0.1,
+        duration: 5,
+      },
+      0
+    );
+  }
+
+  if (waves.length) {
+    tl.from(
+      waves,
+      {
+        y: () => gsap.utils.random(-8, 8),
+        stagger: 0.1,
+        duration: 5,
+      },
+      0
+    );
+  }
+
+  return tl;
+}
 
 function initNavigation() {
   if (!initNavigation._hasResizeListener) {
@@ -40,6 +83,16 @@ function initNavigation() {
     initDesktopDropdowns();
     initNavigation._lastMode = "desktop";
   }
+
+  ScrollTrigger.create({
+    start: "100px top", // When the scroll reaches 100px
+    onEnter: () => document.querySelector(".nav").classList.add("is-scrolled"),
+    onLeaveBack: () =>
+      document.querySelector(".nav").classList.remove("is-scrolled"),
+    toggleActions: "play none none reverse",
+
+    markers: false,
+  });
 }
 
 function debounce(fn, delay) {

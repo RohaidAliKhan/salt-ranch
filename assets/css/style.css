@@ -75,6 +75,7 @@
 :root {
   /* Base Colors */
   --driftwood: #493730;
+  --driftwood-alpha: 73, 55, 48;
   --softwhitequatz: #f7ece0;
   --coral: #e09170;
   --sandgrain: #e8d9c9;
@@ -210,6 +211,12 @@ p:empty {
   left: 0;
   height: 100%;
   width: 100%;
+}
+
+/* ------------------------- Parallax - Images -------------------------------------------------- */
+.parallax-image {
+  position: relative;
+  overflow: hidden;
 }
 
 .background-light {
@@ -550,11 +557,8 @@ section:is(:not(.section-hero), .no-background) {
   letter-spacing: 0.05em;
 }
 
-header {
-}
-header .header-bg {
-}
-header .navbar-desktop li {
+nav.nav.is-scrolled {
+  box-shadow: 0 0 12px rgba(var(--driftwood-alpha), 0.2);
 }
 .nav-link {
   font-size: 1.875rem;
@@ -979,7 +983,7 @@ body:has(.nav-dropdown:focus-within) .nav-dropdown__content-li {
 
 .nav-dropdown__link:hover .nav-dropdown__img,
 .nav-dropdown__link:focus-visible .nav-dropdown__img {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 /* ———— DROPDOWN LINKS ———— */
@@ -1310,6 +1314,8 @@ body:has(.nav-dropdown:focus-within) .nav-dropdown__content-li {
   float: right;
   margin-bottom: -6rem;
   width: 60%;
+  position: relative;
+  z-index: -1;
 }
 .double-overlap-images .second-img {
   width: 80%;
