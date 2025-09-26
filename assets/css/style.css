@@ -107,7 +107,7 @@
   --animation-slow: 0.8s cubic-bezier(0.6, 0, 0.2, 1);
 
   /* Navigation */
-  --nav-bg-height: calc(15em + calc(2em + 3em + 2.5em + 3em));
+  --nav-bg-height: calc(12em + calc(2em + 3em + 2.5em + 3em));
   --cubic-default: cubic-bezier(0.525, 0, 0, 1);
   --duration-fast: 0.2s;
   --duration-normal: 0.45s;
@@ -175,7 +175,7 @@ a {
 }
 
 a:hover {
-  color: var(--coral);
+  color: var(--primary-text-color);
 }
 
 ul,
@@ -218,6 +218,30 @@ p:empty {
 
 .background-dark {
   background-color: var(--coral);
+}
+
+.background-sand {
+  background-color: var(--sandgrain);
+}
+
+body.background-dark .nav,
+body.background-dark .nav-bg {
+  background: var(--coral);
+}
+
+body.background-light .nav,
+body.background-light .nav-bg {
+  background: var(--seashell);
+}
+
+body.background-sand .nav,
+body.background-sand .nav-bg {
+  background: var(--sandgrain);
+}
+
+body.background-dark .btn:hover {
+  background: var(--offwhite-color);
+  color: var(--seashell);
 }
 
 .marquee-wrapper {
@@ -578,7 +602,7 @@ header .navbar-desktop li a:hover {
 .nav {
   z-index: 100;
   color: #fff;
-  position: sticky;
+  position: relative;
   top: 0;
   transition: color var(--duration-fast) var(--cubic-default);
   background-color: var(--primary-bg-color);
@@ -791,6 +815,21 @@ header .navbar-desktop li a:hover {
   transition: opacity var(--duration-fast) var(--cubic-default);
 }
 
+.nav-footer-content {
+  display: none;
+}
+
+.mobile-menu-button {
+  display: none !important;
+}
+
+.mobile-menu-button span {
+  color: var(--primary-text-color);
+  font-family: "Manuka";
+  text-transform: uppercase;
+  font-size: 1.375rem;
+}
+
 .menu-button {
   grid-column-gap: 0.25em;
   grid-row-gap: 0.25em;
@@ -837,7 +876,7 @@ header .navbar-desktop li a:hover {
 /* Fourth item (Events) open/hovered */
 .nav:has(.nav-center__list > li.col-2-dropdown [aria-expanded="true"]),
 .nav:has(.nav-center__list > li.col-2-dropdown:hover) {
-  --nav-bg-height: 47rem;
+  --nav-bg-height: 43rem;
 }
 :is(
     body:has([data-dropdown-toggle]:hover),
@@ -914,6 +953,12 @@ header .navbar-desktop li a:hover {
 .nav-dropdown__content-li:nth-child(5) {
   transition-delay: 0.44s;
 }
+.nav-dropdown__content-li:nth-child(6) {
+  transition-delay: 0.5s;
+}
+.nav-dropdown__content-li:nth-child(7) {
+  transition-delay: 0.54s;
+}
 body:has([data-dropdown-toggle]:hover)
   [data-dropdown-toggle]:hover
   + .nav-dropdown
@@ -944,7 +989,7 @@ body:has(.nav-dropdown:focus-within) .nav-dropdown__content-li {
 }
 
 /* ———— NAV LINKS ———— */
-a.nav-link .nav-link__label::after {
+.nav-link__label::after {
   content: "";
   position: absolute;
   left: 0;
@@ -957,8 +1002,8 @@ a.nav-link .nav-link__label::after {
   transform-origin: right center;
 }
 
-a.nav-link:hover .nav-link__label::after,
-a.nav-link:focus-visible .nav-link__label::after {
+.nav-link:hover .nav-link__label::after,
+.nav-link:focus-visible .nav-link__label::after {
   transform: scale(1, 1);
   transform-origin: left center;
 }
@@ -993,6 +1038,12 @@ a.nav-link:focus-visible .nav-link__label::after {
 }
 
 @media screen and (max-width: 767px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  .nav-dropdown__content {
+    padding-top: 0.5em !important;
+  }
   .nav-logo {
     z-index: 1;
     position: relative;
@@ -1017,22 +1068,37 @@ a.nav-link:focus-visible .nav-link__label::after {
 
   .nav-center__list {
     flex-flow: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: stretch;
-    height: 100%;
-    padding-top: 8em;
+    height: 90%;
+    padding-top: 0;
     overflow: hidden scroll;
   }
 
+  .nav-footer-content {
+    display: block;
+  }
+
+  .nav-footer-content p {
+    font-family: "Founders Grotesk Mono";
+    font-size: 0.85rem;
+    text-align: center;
+    line-height: 1.5;
+  }
+
   .nav-link {
-    justify-content: space-between;
-    align-items: center;
     width: 100%;
-    padding: 1em 1.25em;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
   }
 
   .nav-link__label {
     font-size: 2em;
+    line-height: 1.2;
   }
 
   .nav-dropdown {
@@ -1069,17 +1135,28 @@ a.nav-link:focus-visible .nav-link__label::after {
   }
 
   .nav-dropdown__content {
-    grid-gap: 0.75em;
-    grid-template-columns: repeat(2, 1fr);
-    padding-top: 1em;
-    padding-bottom: 1em;
+    grid-gap: 0;
+    grid-template-columns: repeat(1, 1fr);
+    padding-top: 0;
+    padding-bottom: 0;
     display: grid;
   }
 
+  .nav-link__dropdown-icon {
+    width: 1em;
+  }
+
   .nav-dropdown__link {
-    aspect-ratio: 1;
     height: auto;
-    padding: 1em;
+    padding: 0;
+  }
+
+  .nav-dropdown__link-inner {
+    justify-content: center;
+  }
+
+  .nav-dropdown__link-bg {
+    display: none;
   }
 
   .nav-dropdown__link-label {
@@ -1092,9 +1169,16 @@ a.nav-link:focus-visible .nav-link__label::after {
 
   .menu-button {
     display: flex;
+    background: transparent;
+    border: unset;
+    padding-left: 0;
   }
 
   :root {
+    --nav-bg-height: 100dvh;
+  }
+  .nav:has(.nav-center__list > li.col-2-dropdown [aria-expanded="true"]),
+  .nav:has(.nav-center__list > li.col-2-dropdown:hover) {
     --nav-bg-height: 100dvh;
   }
   .nav-dropdown__overflow {
@@ -1112,14 +1196,13 @@ a.nav-link:focus-visible .nav-link__label::after {
     color: var(--color-dark);
     .menu-button__line:nth-of-type(1) {
       transform: translate(0px, 0.125em) rotate(135deg);
-      background-color: #fff;
     }
     .menu-button__line:nth-of-type(2) {
       transform: translate(0px, -0.175em) rotate(-135deg);
-      background-color: #fff;
     }
     .nav-bg {
       height: var(--nav-bg-height);
+      background: var(--coral);
     }
     .page-bg {
       opacity: 1;
@@ -1168,20 +1251,6 @@ a.nav-link:focus-visible .nav-link__label::after {
     padding-right: 0.75em;
   }
 
-  .nav-dropdown__link {
-    padding: 0.75em;
-  }
-
-  .nav-dropdown__link-label {
-    font-size: 1em;
-  }
-
-  .nav-dropdown__link-bubble {
-    width: 1.25em;
-    height: 1.25em;
-    padding: 0.375em;
-  }
-
   .xs--hide {
     display: none;
   }
@@ -1222,7 +1291,7 @@ a.nav-link:focus-visible .nav-link__label::after {
   margin-bottom: 1.2rem;
 }
 .center-content p {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.8rem;
 }
 .vertical-text {
   writing-mode: vertical-rl;
@@ -1427,6 +1496,94 @@ footer li a,
   justify-content: start;
 }
 
+.left-right-col-row .content-img-col {
+  padding-bottom: 10rem;
+}
+
+.left-right-col-row .right-col .content-img-col:last-child,
+.left-right-col-row .left-col .content-img-col:last-child {
+  padding-bottom: 0;
+}
+
+.right-col {
+  align-items: end;
+  padding-top: 10rem;
+}
+
+.double-img-left-col .first-img {
+  margin-bottom: -7rem;
+  position: relative;
+  z-index: 9;
+}
+
+.content-sticky-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+}
+
+.image-sticky-col figure {
+  position: sticky;
+  top: 0;
+}
+
+.contact-info p {
+  font-family: "Founders Grotesk Mono";
+  line-height: 1.5;
+}
+
+.form-control {
+  background: transparent;
+  border: unset;
+  border-bottom: 1px solid var(--primary-text-color);
+  padding-inline: 0.2rem;
+  border-radius: 0;
+  color: var(--primary-text-color);
+  text-transform: uppercase;
+  font-family: "Founders Grotesk Mono";
+}
+
+.form-control::placeholder {
+  color: var(--primary-text-color);
+}
+
+.form-label,
+.form-check {
+  font-family: "Founders Grotesk Mono";
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+button.simple-btn {
+  background: transparent;
+  padding: 0;
+  border: unset;
+}
+
+.form-check .form-check-input {
+  background: transparent;
+}
+
+.hero-sec-col2 h1 {
+  font-size: 7.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-sec-col2 .text-col {
+  padding-inline: 11rem;
+}
+
+.col-2-left-doubleimg .left-vector {
+  position: absolute;
+  left: 0;
+  top: -15rem;
+}
+
+.content-block .sub-heading {
+  font-family: "Founders Grotesk Mono";
+  text-transform: uppercase;
+}
+
 /*------Inner Pages Css End-----------*/
 
 /*------Gallery Pages Filter Css Start-----------*/
@@ -1446,6 +1603,9 @@ footer li a,
 .filter-buttons > span {
   line-height: 1;
   padding-bottom: 1.5px;
+  text-transform: uppercase;
+  font-family: "Founders Grotesk Mono";
+  font-size: 1.1875rem;
 }
 
 .filter-btn {
@@ -1588,17 +1748,28 @@ footer li a,
 }
 /*-----------------------------------------------------------------------------------------------------*/
 @media (max-width: 1280px) {
+  .hero-sec-col2 .text-col {
+    padding-inline: 5rem;
+  }
+  .hero-sec-col2 h1 {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+  }
 }
 /*-----------------------------------------------------------------------------------------------------*/
 @media (max-width: 1024px) {
-  header .navbar-desktop li a {
-    font-size: 1.675rem;
+  .nav-link {
+    font-size: 1.2rem;
+    padding: 0;
   }
 }
 /*-----------------------------------------------------------------------------------------------------*/
 @media (max-width: 840px) {
-  header .navbar-desktop li a {
-    font-size: 1.2rem;
+  .nav-center__list {
+    gap: 1rem;
+  }
+  .nav-link {
+    font-size: 1rem;
   }
   .btn {
     font-size: 1.2rem;
@@ -1637,6 +1808,46 @@ footer li a,
   section:is(:not(.section-hero), .no-background) {
     padding: 6rem 0;
   }
+  .double-img-left-col img {
+    width: 70%;
+  }
+}
+/*-----------------------------------------------------------------------------------------------------*/
+@media (max-width: 767px) {
+  .nav-link {
+    font-size: 1.5rem;
+  }
+  .vertical-text {
+    display: none;
+  }
+  .left-right-col-row .content-img-col {
+    padding-bottom: 3rem;
+  }
+  .right-col {
+    padding-top: 3rem;
+  }
+  .service-slider .swiper-wrapper {
+    gap: 0.2rem;
+  }
+  .double-img-left-col img {
+    width: 80%;
+  }
+  .service-slider-wrapper .swiper-button-next,
+  .service-slider-wrapper .swiper-button-prev {
+    top: unset;
+    right: 0;
+    left: auto;
+  }
+  .service-slider-wrapper .swiper-button-prev {
+    right: 4rem;
+  }
+  .content-sticky-col {
+    gap: 4rem;
+  }
+  .hero-sec-col2 .text-col {
+    padding-inline: 1rem;
+    padding-block: 3rem;
+  }
 }
 /*-----------------------------------------------------------------------------------------------------*/
 @media (max-width: 525px) {
@@ -1651,9 +1862,6 @@ footer li a,
   }
   header .navbar .container {
     justify-content: center;
-  }
-  .vertical-text {
-    display: none;
   }
   .home-vector-img {
     margin-left: 0;

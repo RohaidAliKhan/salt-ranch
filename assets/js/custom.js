@@ -4,7 +4,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   initNavigation();
-  initMarquee("#marquee", 1);
+  initMarquee("#marquee1", 1);
   initMarquee("#marquee2", -1);
   initSwiper();
   initCustomSwiper();
