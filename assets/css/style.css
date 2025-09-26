@@ -602,7 +602,7 @@ header .navbar-desktop li a:hover {
 .nav {
   z-index: 100;
   color: #fff;
-  position: relative;
+  position: sticky;
   top: 0;
   transition: color var(--duration-fast) var(--cubic-default);
   background-color: var(--primary-bg-color);
@@ -979,7 +979,7 @@ body:has(.nav-dropdown:focus-within) .nav-dropdown__content-li {
 
 .nav-dropdown__link:hover .nav-dropdown__img,
 .nav-dropdown__link:focus-visible .nav-dropdown__img {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 /* ———— DROPDOWN LINKS ———— */
@@ -1524,7 +1524,7 @@ footer li a,
 
 .image-sticky-col figure {
   position: sticky;
-  top: 0;
+  top: 7rem;
 }
 
 .contact-info p {
