@@ -69,6 +69,57 @@
   font-display: swap;
 }
 
+/* ------------------------- Loading -------------------------------------------------- */
+
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 500;
+  pointer-events: none;
+}
+
+.loading-container .loading-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-light);
+}
+
+.loading-logo {
+  width: 7em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(0%) rotate(0.001deg);
+}
+
+.loading-logo > * {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  transform: translateY(0%) rotate(0.001deg);
+}
+
+.loading-logo .iconmark {
+  width: 45%;
+}
+
+.loading-logo svg {
+  width: 100%;
+}
+
 /*===========================
   Global
 ===========================*/
@@ -795,7 +846,7 @@ header .navbar-desktop li a:hover {
   object-fit: cover;
   width: 100%;
   height: 100%;
-  transition: transform 0.35s cubic-bezier(0.625, 0.05, 0, 1);
+  transition: transform var(--animation-smooth);
 }
 
 .nav-dropdown__img-overlay {
@@ -983,7 +1034,7 @@ body:has(.nav-dropdown:focus-within) .nav-dropdown__content-li {
 
 .nav-dropdown__link:hover .nav-dropdown__img,
 .nav-dropdown__link:focus-visible .nav-dropdown__img {
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
 /* ———— DROPDOWN LINKS ———— */
