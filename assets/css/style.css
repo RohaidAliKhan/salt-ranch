@@ -653,7 +653,6 @@ header .navbar-desktop li a:hover {
 }
 header {
   z-index: 100;
-  color: #fff;
   position: sticky;
   top: 0;
   transition: color var(--duration-fast) var(--cubic-default);
