@@ -1,8 +1,9 @@
 let scroll;
-
+const isHome = document.querySelector("section.is-home");
 document.addEventListener("DOMContentLoaded", () => {
   initSmoothScroll();
   initLoaderHome();
+  pageTransitionOut();
   wrapAltFont();
   initNavigation();
   initMarquee("#marquee1", 1);
@@ -12,24 +13,14 @@ document.addEventListener("DOMContentLoaded", () => {
   initCustomSwiper();
   initMutliFilterSetupMultiMatch();
   initServiceSlider();
+  initMagneticEffect();
 });
 
 function wrapAltFont() {
-  const altElements = document.querySelectorAll(
-    [
-      ".heading-style-h1",
-      "h1",
-      ".heading-style-h2",
-      "h2",
-      ".nav-link__label",
-    ].join(", ")
-  );
+  const altElements = document.querySelectorAll([".heading-style-h1", "h1", ".heading-style-h2", "h2", ".nav-link__label"].join(", "));
 
   altElements.forEach((el) => {
-    el.innerHTML = el.textContent.replace(
-      /([CGJSQ123569])/gi,
-      '<span class="alt-font">$1</span>'
-    );
+    el.innerHTML = el.textContent.replace(/([CGJSQ123569])/gi, '<span class="alt-font">$1</span>');
   });
 }
 
@@ -59,21 +50,19 @@ function initLoaderHome() {
   let offsetPositive = 50 - offset + "%";
   let offsetNegative = 50 + offset + "%";
 
+  if (!isHome) return;
+
   let tl = gsap.timeline();
 
   tl.set("html", { cursor: "wait" }, 0);
   tl.set("html", { cursor: "auto" }, 0);
   tl.set("body .nav", { autoAlpha: 0 }, 0);
-  tl.set(".section-hero", { autoAlpha: 0 }, 0);
-  tl.set(".section-hero", { autoAlpha: 1 }, 0.8);
+  tl.set("section:not(.section-hero)", { rotate: 0.001, opacity: 0, y: "1em", filter: "blur(0.25em)", scale: 0.975 }, 0);
+  tl.set(".section-hero.is-home", { autoAlpha: 1 }, 0.8);
   tl.set(".section-hero .hero-wrapper figure", { scale: 1, rotate: 0.001 }, 0);
+  tl.set(".loading-container .loading-screen", { backgroundColor: "transparent" }, 0);
   tl.set(
-    ".loading-container .loading-screen",
-    { backgroundColor: "transparent" },
-    0
-  );
-  tl.set(
-    ".section-hero",
+    ".section-hero.is-home",
     {
       clipPath: `polygon(${offsetPositive} ${offsetTop}, ${offsetNegative} ${offsetTop}, ${offsetNegative} 100%, ${offsetPositive} 100%)`,
     },
@@ -82,7 +71,7 @@ function initLoaderHome() {
   tl.set(".loading-logo svg", { yPercent: 0, rotate: 0.001 }, 0);
 
   tl.from(
-    ".section-hero",
+    ".section-hero.is-home",
     {
       yPercent: 50,
       rotate: 0.001,
@@ -104,7 +93,7 @@ function initLoaderHome() {
   );
 
   tl.to(
-    ".section-hero",
+    ".section-hero.is-home",
     {
       duration: 2,
       ease: "Expo.easeInOut",
@@ -139,7 +128,7 @@ function initLoaderHome() {
   tl.set(".loading-screen", { autoAlpha: 0 }, 3.8);
 
   tl.to(
-    ".section-hero .hero-wrapper figure",
+    ".section-hero.is-home .hero-wrapper figure",
     {
       duration: 2,
       ease: "Expo.easeInOut",
@@ -161,7 +150,7 @@ function initLoaderHome() {
   );
 
   tl.from(
-    ".section-hero .container",
+    ".section-hero.is-home .container",
     {
       duration: 2,
       ease: "Expo.easeOut",
@@ -169,6 +158,16 @@ function initLoaderHome() {
       clearProps: "all",
     },
     2.6
+  );
+
+  tl.from(
+    "#hero-heading",
+    {
+      autoAlpha: 0,
+      yPercent: 20,
+      ease: "Expo.easeOut",
+    },
+    3
   );
 
   tl.to(
@@ -182,9 +181,37 @@ function initLoaderHome() {
     2.8
   );
 
+  tl.to(
+    "section:not(.section-hero)",
+    {
+      duration: 1.4,
+      rotate: 0.001,
+      opacity: 1,
+      y: "0em",
+      ease: "Expo.easeOut",
+      stagger: 0.1,
+      scale: 1,
+    },
+    3
+  );
+  tl.to(
+    "section:not(.section-hero)",
+    {
+      duration: 2,
+      ease: "Expo.easeOut",
+      clearProps: "all",
+      stagger: 0.1,
+      filter: "blur(0em)",
+      scale: 1,
+    },
+    3.2
+  );
+
   tl.call(
     () => {
-      scroll.stop();
+      requestAnimationFrame(() => {
+        scroll.stop();
+      });
       scroll.scrollTo(0, {
         immediate: true,
         force: true,
@@ -252,6 +279,134 @@ function initLoaderHome() {
     null,
     1
   );
+
+  tl.call(
+    () => {
+      requestAnimationFrame(() => {
+        scroll.start();
+      });
+    },
+    null,
+    2.9
+  );
+}
+
+// Animation - Page Enter
+function pageTransitionOut() {
+  let tl = gsap.timeline();
+
+  if (isHome) return;
+
+  tl.call(
+    () => {
+      requestAnimationFrame(() => {
+        scroll.stop();
+      });
+      scroll.scrollTo(0, {
+        immediate: true,
+        force: true,
+        lock: true,
+        duration: 0.0166,
+      });
+      window.scrollTo(0, 0);
+    },
+    null,
+    0
+  );
+  tl.set("body .nav", { autoAlpha: 0, yPercent: -100 }, 0);
+
+  tl.set(
+    "section:not(.section-hero.is-home) [class^='col-md-'], section:not(.section-hero.is-home) + section, section:not(.section-hero.is-home) .hero-wrapper > *",
+    {
+      rotate: 0.001,
+      opacity: 0,
+      y: "1em",
+      filter: "blur(0.25em)",
+      // scale: 0.975,
+    },
+    0
+  );
+
+  tl.to("body .nav", { duration: 1.4, yPercent: 0, ease: "Expo.easeOut", autoAlpha: 1, clearProps: "all" }, 0.2);
+
+  tl.to(
+    "section:not(.section-hero.is-home) [class^='col-md-'], section:not(.section-hero.is-home) + section, section:not(.section-hero.is-home) .hero-wrapper > *",
+    {
+      duration: 1.4,
+      rotate: 0.001,
+      opacity: 1,
+      y: "0em",
+      ease: "Expo.easeOut",
+      stagger: 0.1,
+      // scale: 1,
+    },
+    0.4
+  );
+
+  tl.to(
+    "section:not(.section-hero.is-home) [class^='col-md-'], section:not(.section-hero.is-home) + section, section:not(.section-hero.is-home) .hero-wrapper > *",
+    {
+      duration: 2,
+      ease: "Expo.easeOut",
+      clearProps: "all",
+      stagger: 0.1,
+      filter: "blur(0em)",
+      // scale: 1,
+    },
+    0.6
+  );
+
+  tl.call(
+    () => {
+      scroll.scrollTo(0, {
+        immediate: true,
+        force: true,
+        lock: true,
+        duration: 0.0166,
+      });
+      window.scrollTo(0, 0);
+    },
+    null,
+    0.1
+  );
+
+  tl.call(
+    () => {
+      scroll.scrollTo(0, {
+        immediate: true,
+        force: true,
+        lock: true,
+        duration: 0.0166,
+      });
+      window.scrollTo(0, 0);
+    },
+    null,
+    0.2
+  );
+
+  tl.call(
+    () => {
+      scroll.scrollTo(0, {
+        immediate: true,
+        force: true,
+        lock: true,
+        duration: 0.0166,
+      });
+      window.scrollTo(0, 0);
+    },
+    null,
+    0.4
+  );
+
+  tl.call(
+    () => {
+      requestAnimationFrame(() => {
+        scroll.start();
+      });
+    },
+    null,
+    0.6
+  );
 }
 
 function animateIllustration() {
@@ -316,8 +471,7 @@ function initNavigation() {
   ScrollTrigger.create({
     start: "100px top", // When the scroll reaches 100px
     onEnter: () => document.querySelector(".nav").classList.add("is-scrolled"),
-    onLeaveBack: () =>
-      document.querySelector(".nav").classList.remove("is-scrolled"),
+    onLeaveBack: () => document.querySelector(".nav").classList.remove("is-scrolled"),
     toggleActions: "play none none reverse",
 
     markers: false,
@@ -352,54 +506,43 @@ function initMobileMenu() {
     });
   }
 
-  Array.from(document.querySelectorAll("[data-dropdown-toggle]")).forEach(
-    (toggle, i) => {
-      const dd = toggle.nextElementSibling;
-      if (!dd || !dd.classList.contains("nav-dropdown")) return;
-      if (toggle._mobileDropdownInit) return;
-      toggle._mobileDropdownInit = true;
+  Array.from(document.querySelectorAll("[data-dropdown-toggle]")).forEach((toggle, i) => {
+    const dd = toggle.nextElementSibling;
+    if (!dd || !dd.classList.contains("nav-dropdown")) return;
+    if (toggle._mobileDropdownInit) return;
+    toggle._mobileDropdownInit = true;
 
-      toggle.setAttribute("aria-expanded", "false");
-      toggle.setAttribute("aria-haspopup", "true");
-      toggle.setAttribute("aria-controls", `dropdown-${i}`);
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-haspopup", "true");
+    toggle.setAttribute("aria-controls", `dropdown-${i}`);
 
-      dd.setAttribute("id", `dropdown-${i}`);
-      dd.setAttribute("role", "menu");
-      dd.querySelectorAll(".nav-dropdown__link").forEach((link) =>
-        link.setAttribute("role", "menuitem")
-      );
+    dd.setAttribute("id", `dropdown-${i}`);
+    dd.setAttribute("role", "menu");
+    dd.querySelectorAll(".nav-dropdown__link").forEach((link) => link.setAttribute("role", "menuitem"));
 
-      toggle.addEventListener("click", () => {
-        const open = toggle.dataset.dropdownToggle === "open";
-        Array.from(document.querySelectorAll("[data-dropdown-toggle]")).forEach(
-          (other) => {
-            if (other !== toggle) {
-              other.dataset.dropdownToggle = "closed";
-              other.setAttribute("aria-expanded", "false");
-              if (other === document.activeElement) other.blur();
-            }
-          }
-        );
-        toggle.dataset.dropdownToggle = open ? "closed" : "open";
-        toggle.setAttribute("aria-expanded", !open);
-        if (open && toggle === document.activeElement) toggle.blur();
+    toggle.addEventListener("click", () => {
+      const open = toggle.dataset.dropdownToggle === "open";
+      Array.from(document.querySelectorAll("[data-dropdown-toggle]")).forEach((other) => {
+        if (other !== toggle) {
+          other.dataset.dropdownToggle = "closed";
+          other.setAttribute("aria-expanded", "false");
+          if (other === document.activeElement) other.blur();
+        }
       });
-    }
-  );
+      toggle.dataset.dropdownToggle = open ? "closed" : "open";
+      toggle.setAttribute("aria-expanded", !open);
+      if (open && toggle === document.activeElement) toggle.blur();
+    });
+  });
 }
 
 function initDesktopDropdowns() {
-  const toggles = Array.from(
-    document.querySelectorAll("[data-dropdown-toggle]")
-  );
-  const links = Array.from(
-    document.querySelectorAll(".nav-link:not([data-dropdown-toggle])")
-  );
+  const toggles = Array.from(document.querySelectorAll("[data-dropdown-toggle]"));
+  const links = Array.from(document.querySelectorAll(".nav-link:not([data-dropdown-toggle])"));
 
   toggles.forEach((toggle, i) => {
     const dd = toggle.nextElementSibling;
-    if (!dd || !dd.classList.contains("nav-dropdown") || toggle._desktopInit)
-      return;
+    if (!dd || !dd.classList.contains("nav-dropdown") || toggle._desktopInit) return;
     toggle._desktopInit = true;
 
     toggle.setAttribute("aria-expanded", "false");
@@ -409,9 +552,7 @@ function initDesktopDropdowns() {
     dd.setAttribute("id", `desktop-dropdown-${i}`);
     dd.setAttribute("role", "menu");
     dd.setAttribute("aria-hidden", "true");
-    dd.querySelectorAll(".nav-dropdown__link").forEach((link) =>
-      link.setAttribute("role", "menuitem")
-    );
+    dd.querySelectorAll(".nav-dropdown__link").forEach((link) => link.setAttribute("role", "menuitem"));
 
     toggle.addEventListener("click", (e) => {
       e.preventDefault();
@@ -560,7 +701,7 @@ function initSwiper() {
       centeredSlides: true,
       spaceBetween: 20,
       loop: true,
-      speed: 1000,
+      speed: 800,
       autoplay: {
         delay: 3000,
         disableOnInteraction: false,
@@ -574,9 +715,7 @@ function initSwiper() {
           slidesPerView: 1.5,
         },
         768: {
-          slidesPerView: swiperEl.classList.contains("swiper-three")
-            ? 3.5
-            : 3.5,
+          slidesPerView: swiperEl.classList.contains("swiper-three") ? 3.5 : 3.5,
         },
         1024: {
           slidesPerView: slidesCount,
@@ -589,7 +728,7 @@ function initSwiper() {
 function initCustomSwiper() {
   new Swiper(".parallax-swiper", {
     loop: true,
-    speed: 1000,
+    speed: 800,
     grabCursor: true,
     parallax: true,
     navigation: {
@@ -608,14 +747,8 @@ function initMutliFilterSetupMultiMatch() {
   const groups = [...document.querySelectorAll("[data-filter-group]")];
 
   groups.forEach((group) => {
-    const targetMatch = (
-      group.getAttribute("data-filter-target-match") || "multi"
-    )
-      .trim()
-      .toLowerCase(); // 'single' | 'multi'
-    const nameMatch = (group.getAttribute("data-filter-name-match") || "multi")
-      .trim()
-      .toLowerCase(); // 'single' | 'multi'
+    const targetMatch = (group.getAttribute("data-filter-target-match") || "multi").trim().toLowerCase(); // 'single' | 'multi'
+    const nameMatch = (group.getAttribute("data-filter-name-match") || "multi").trim().toLowerCase(); // 'single' | 'multi'
 
     const buttons = [...group.querySelectorAll("[data-filter-target]")];
     const items = [...group.querySelectorAll("[data-filter-name]")];
@@ -627,24 +760,19 @@ function initMutliFilterSetupMultiMatch() {
       const seen = new Set(),
         tokens = [];
       collectors.forEach((c) => {
-        const v = (c.getAttribute("data-filter-name-collect") || "")
-          .trim()
-          .toLowerCase();
+        const v = (c.getAttribute("data-filter-name-collect") || "").trim().toLowerCase();
         if (v && !seen.has(v)) {
           seen.add(v);
           tokens.push(v);
         }
       });
-      if (tokens.length)
-        item.setAttribute("data-filter-name", tokens.join(" "));
+      if (tokens.length) item.setAttribute("data-filter-name", tokens.join(" "));
     });
 
     // Cache item tokens
     const itemTokens = new Map();
     items.forEach((el) => {
-      const raw = (el.getAttribute("data-filter-name") || "")
-        .trim()
-        .toLowerCase();
+      const raw = (el.getAttribute("data-filter-name") || "").trim().toLowerCase();
       const tokens = raw ? raw.split(/\s+/).filter(Boolean) : [];
       itemTokens.set(el, new Set(tokens));
     });
@@ -709,11 +837,7 @@ function initMutliFilterSetupMultiMatch() {
 
     // 🔹 NEW: function to reindex only active items
     function reindexItems(container) {
-      const activeItems = [
-        ...container.querySelectorAll(
-          '.filter-list__item[data-filter-status="active"]'
-        ),
-      ];
+      const activeItems = [...container.querySelectorAll('.filter-list__item[data-filter-status="active"]')];
       activeItems.forEach((item, i) => {
         // remove old position classes
         item.className = item.className.replace(/\bposition-\d+\b/g, "").trim();
@@ -763,22 +887,18 @@ function initMutliFilterSetupMultiMatch() {
 
       // Update buttons
       buttons.forEach((btn) => {
-        const t = (btn.getAttribute("data-filter-target") || "")
-          .trim()
-          .toLowerCase();
+        const t = (btn.getAttribute("data-filter-target") || "").trim().toLowerCase();
         let on = false;
         if (t === "all") on = !hasRealActive();
         else if (t === "reset") on = hasRealActive();
-        else
-          on = targetMatch === "single" ? activeTags === t : activeTags.has(t);
+        else on = targetMatch === "single" ? activeTags === t : activeTags.has(t);
         setButtonState(btn, on);
       });
     };
 
     group.addEventListener("click", (e) => {
       const btn = e.target.closest("[data-filter-target]");
-      if (btn && group.contains(btn))
-        paint(btn.getAttribute("data-filter-target"));
+      if (btn && group.contains(btn)) paint(btn.getAttribute("data-filter-target"));
     });
 
     paint("all"); // initial render
@@ -812,5 +932,62 @@ function initServiceSlider() {
         992: { slidesPerView: 2.5 },
       },
     });
+  });
+}
+
+function initMagneticEffect() {
+  const magnets = document.querySelectorAll("[data-magnetic-strength]");
+  if (window.innerWidth <= 991) return;
+
+  // Helper to kill tweens and reset an element.
+  const resetEl = (el, immediate) => {
+    if (!el) return;
+    gsap.killTweensOf(el);
+    (immediate ? gsap.set : gsap.to)(el, {
+      x: "0em",
+      y: "0em",
+      rotate: "0deg",
+      clearProps: "all",
+      ...(!immediate && { ease: "elastic.out(1, 0.3)", duration: 1.6 }),
+    });
+  };
+
+  const resetOnEnter = (e) => {
+    const m = e.currentTarget;
+    resetEl(m, true);
+    resetEl(m.querySelector("[data-magnetic-inner-target]"), true);
+  };
+
+  const moveMagnet = (e) => {
+    const m = e.currentTarget,
+      b = m.getBoundingClientRect(),
+      strength = parseFloat(m.getAttribute("data-magnetic-strength")) || 25,
+      inner = m.querySelector("[data-magnetic-inner-target]"),
+      innerStrength = parseFloat(m.getAttribute("data-magnetic-strength-inner")) || strength,
+      offsetX = ((e.clientX - b.left) / m.offsetWidth - 0.5) * (strength / 16),
+      offsetY = ((e.clientY - b.top) / m.offsetHeight - 0.5) * (strength / 16);
+
+    gsap.to(m, { x: offsetX + "em", y: offsetY + "em", rotate: "0.001deg", ease: "power4.out", duration: 1.6 });
+
+    if (inner) {
+      const innerOffsetX = ((e.clientX - b.left) / m.offsetWidth - 0.5) * (innerStrength / 16),
+        innerOffsetY = ((e.clientY - b.top) / m.offsetHeight - 0.5) * (innerStrength / 16);
+      gsap.to(inner, { x: innerOffsetX + "em", y: innerOffsetY + "em", rotate: "0.001deg", ease: "power4.out", duration: 2 });
+    }
+  };
+
+  const resetMagnet = (e) => {
+    const m = e.currentTarget,
+      inner = m.querySelector("[data-magnetic-inner-target]");
+    gsap.to(m, { x: "0em", y: "0em", ease: "elastic.out(1, 0.3)", duration: 1.6, clearProps: "all" });
+    if (inner) {
+      gsap.to(inner, { x: "0em", y: "0em", ease: "elastic.out(1, 0.3)", duration: 2, clearProps: "all" });
+    }
+  };
+
+  magnets.forEach((m) => {
+    m.addEventListener("mouseenter", resetOnEnter);
+    m.addEventListener("mousemove", moveMagnet);
+    m.addEventListener("mouseleave", resetMagnet);
   });
 }
