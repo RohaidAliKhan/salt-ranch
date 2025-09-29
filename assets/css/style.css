@@ -326,7 +326,7 @@ body.background-dark .btn:hover {
 
 /* Normal Button */
 .btn {
-  font-size: 1.875rem;
+  font-size: 1.187rem;
   line-height: 1;
   letter-spacing: 0.03em;
   border: 2px solid transparent;
@@ -340,7 +340,7 @@ body.background-dark .btn:hover {
   display: grid;
   grid-template-columns: 1fr;
   place-items: center;
-  font-family: var(--fontfamily-manuka);
+  font-family: var(--fontfamily-founders-grotesk-mono);
 }
 .btn > svg,
 .btn span {
@@ -348,7 +348,8 @@ body.background-dark .btn:hover {
   grid-row: 1;
 }
 .btn span {
-  padding: 0.553em;
+  padding: 1em;
+  padding-block: 0;
 }
 .btn:hover {
   background: var(--offwhite-color);
@@ -358,6 +359,13 @@ body.background-dark .btn:hover {
   display: flex;
   justify-content: center;
   gap: 1.85rem;
+}
+header .btn {
+  font-size: 1.875rem;
+  font-family: var(--fontfamily-manuka);
+}
+header .btn span {
+  padding: 0.57em;
 }
 .simple-btn {
   font-family: "Founders Grotesk mono";
@@ -1284,6 +1292,10 @@ body:has(.nav-dropdown:focus-within) .nav-dropdown__content-li {
   grid-column: 1 /-1;
   grid-row: 1 /-1;
 }
+.hero-wrapper img {
+  min-height: 86dvh;
+  object-fit: cover;
+}
 .hero-wrapper .hero-content {
   position: relative;
   display: flex;
@@ -1443,6 +1455,12 @@ footer li a,
   -webkit-transform: translateZ(0);
 }
 
+.parallax-swiper .swiper-slide .slide-inner p {
+  font-family: "Founders Grotesk Mono";
+  font-size: 1rem;
+  line-height: 1;
+}
+
 .parallax-swiper .swiper-slide img {
   width: 100%;
 }
@@ -1477,6 +1495,12 @@ footer li a,
   font-size: 0.85rem;
   font-family: "Founders Grotesk Mono";
   margin-top: 0.6rem;
+}
+
+.list-unstyled .small {
+  text-transform: initial;
+  font-family: "Founders Grotesk";
+  font-size: 1.125rem;
 }
 
 .service-slider .swiper-slide {
@@ -1540,7 +1564,7 @@ footer li a,
 
 .image-sticky-col figure {
   position: sticky;
-  top: 7rem;
+  top: 12rem;
 }
 
 .contact-info p {
@@ -1574,6 +1598,7 @@ button.simple-btn {
   background: transparent;
   padding: 0;
   border: unset;
+  color: var(--driftwood);
 }
 
 .form-check .form-check-input {
@@ -1613,8 +1638,13 @@ button.simple-btn {
   grid-row-gap: 0.5em;
   flex-flow: wrap;
   justify-content: center;
-  padding: 1em 1em 6em;
+  padding: 1em 1em 1em;
   display: flex;
+  position: sticky;
+  top: 7rem;
+  background: var(--primary-bg-color);
+  z-index: 99;
+  margin-bottom: 6em;
 }
 .filter-buttons > span {
   line-height: 1;
@@ -1788,7 +1818,7 @@ button.simple-btn {
     font-size: 1rem;
   }
   .btn {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   .navbar-brand svg {
     width: 140px;
@@ -1873,8 +1903,15 @@ button.simple-btn {
   .is-mobile {
     display: block;
   }
+  .right-vector.is-mobile {
+    display: flex;
+    justify-content: end;
+  }
+  figure.right-vector.is-mobile img {
+    float: unset;
+  }
   .btn {
-    font-size: 1.7rem;
+    font-size: 1rem;
   }
   header .navbar .container {
     justify-content: center;
@@ -1949,6 +1986,10 @@ button.simple-btn {
   }
   .small-img {
     width: 50% !important;
+  }
+  .parallax-swiper .swiper-slide .slide-inner p {
+    font-size: 0.6rem;
+    line-height: 1.5;
   }
   /*------Inner Pages Responsive End-----------*/
 }
