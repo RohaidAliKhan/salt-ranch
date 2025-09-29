@@ -112,6 +112,7 @@
   --cubic-default: cubic-bezier(0.525, 0, 0, 1);
   --duration-fast: 0.2s;
   --duration-normal: 0.45s;
+  --nav-height: 7.1875rem;
 }
 
 /* Selection */
@@ -291,7 +292,7 @@ p:empty {
 }
 
 .background-sand {
-  background-color: var(--sandgrain);
+  background-color: var(--sandgrain) !important;
 }
 
 body.background-dark .btn:hover {
@@ -667,6 +668,7 @@ header {
   /* background-color: var(--primary-bg-color); */
   /* backdrop-filter: blur(3em); */
   background-color: inherit;
+  height: var(--nav-height);
 }
 
 .nav-inner {
@@ -716,7 +718,7 @@ header {
   width: 100%;
   padding-top: 2.5em;
   padding-bottom: 3em;
-  position: fixed;
+  position: absolute;
   left: 0;
   right: 0;
   transition: all var(--duration-fast) ease,
@@ -1286,6 +1288,7 @@ body:has(.nav-dropdown:focus-within) .nav-dropdown__content-li {
 .hero-wrapper {
   display: grid;
   grid-template-columns: 1fr;
+  width: calc(100vw - 60px);
 }
 .hero-wrapper figure,
 .hero-wrapper .hero-content {
@@ -1293,7 +1296,7 @@ body:has(.nav-dropdown:focus-within) .nav-dropdown__content-li {
   grid-row: 1 /-1;
 }
 .hero-wrapper img {
-  min-height: 86dvh;
+  height: calc(100vh - var(--nav-height) - 1.875rem);
   object-fit: cover;
 }
 .hero-wrapper .hero-content {
@@ -1437,12 +1440,15 @@ footer li a,
   margin-bottom: -2.5rem;
 }
 
+.swiper-arrow-pagination {
+  margin-top: 0.3rem;
+}
+
 .parallax-swiper .swiper-pagination-fraction {
   width: auto;
-  left: unset;
-  right: 0;
   font-family: "Founders Grotesk Mono";
   font-size: 1rem;
+  position: static;
 }
 .parallax-swiper .swiper-slide {
   overflow: hidden;
@@ -1463,19 +1469,31 @@ footer li a,
 
 .parallax-swiper .swiper-slide img {
   width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.event-slider .parallax-swiper .swiper-slide img {
+  aspect-ratio: auto;
 }
 
 .parallax-swiper .swiper-button-wrapper {
   display: flex;
   gap: 1.5rem;
+  z-index: 9;
+}
+
+.swiper-arrow-pagination .swiper-button-wrapper,
+.swiper-arrow-pagination .swiper-pagination {
+  background: var(--primary-bg-color);
 }
 
 .parallax-swiper .swiper-button-prev,
 .parallax-swiper .swiper-button-next {
-  position: relative;
-  bottom: -30px;
+  position: static;
   width: 20px;
   height: auto;
+  margin-top: 0;
 }
 
 .list-unstyled li {
@@ -1592,6 +1610,14 @@ footer li a,
   font-family: "Founders Grotesk Mono";
   text-transform: uppercase;
   font-size: 1rem;
+}
+
+#nl-message {
+  font-family: "Founders Grotesk Mono";
+  text-transform: uppercase;
+  font-size: 1rem;
+  line-height: 1;
+  text-align: center;
 }
 
 button.simple-btn {
