@@ -1473,6 +1473,10 @@ footer li a,
   object-fit: cover;
 }
 
+.event-slider .parallax-swiper .swiper-slide .slide-inner {
+  width: 100%;
+}
+
 .event-slider .parallax-swiper .swiper-slide img {
   aspect-ratio: auto;
 }
