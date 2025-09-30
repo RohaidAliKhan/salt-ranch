@@ -1,10 +1,7 @@
 @font-face {
   font-family: "Manuka";
   src: url("../fonts/Manuka-Regular.eot");
-  src: url("../fonts/Manuka-Regular.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/Manuka-Regular.woff2") format("woff2"),
-    url("../fonts/Manuka-Regular.woff") format("woff"),
-    url("../fonts/Manuka-Regular.ttf") format("truetype"),
+  src: url("../fonts/Manuka-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Manuka-Regular.woff2") format("woff2"), url("../fonts/Manuka-Regular.woff") format("woff"), url("../fonts/Manuka-Regular.ttf") format("truetype"),
     url("../fonts/Manuka-Regular.svg#Manuka-Regular") format("svg");
   font-weight: normal;
   font-style: normal;
@@ -14,11 +11,8 @@
 @font-face {
   font-family: "Manuka Slab";
   src: url("../fonts/ManukaSlab-Regular.eot");
-  src: url("../fonts/ManukaSlab-Regular.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/ManukaSlab-Regular.woff2") format("woff2"),
-    url("../fonts/ManukaSlab-Regular.woff") format("woff"),
-    url("../fonts/ManukaSlab-Regular.ttf") format("truetype"),
-    url("../fonts/ManukaSlab-Regular.svg#ManukaSlab-Regular") format("svg");
+  src: url("../fonts/ManukaSlab-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/ManukaSlab-Regular.woff2") format("woff2"), url("../fonts/ManukaSlab-Regular.woff") format("woff"),
+    url("../fonts/ManukaSlab-Regular.ttf") format("truetype"), url("../fonts/ManukaSlab-Regular.svg#ManukaSlab-Regular") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -27,13 +21,8 @@
 @font-face {
   font-family: "Founders Grotesk";
   src: url("../fonts/FoundersGrotesk-Regular.eot");
-  src: url("../fonts/FoundersGrotesk-Regular.eot?#iefix")
-      format("embedded-opentype"),
-    url("../fonts/FoundersGrotesk-Regular.woff2") format("woff2"),
-    url("../fonts/FoundersGrotesk-Regular.woff") format("woff"),
-    url("../fonts/FoundersGrotesk-Regular.ttf") format("truetype"),
-    url("../fonts/FoundersGrotesk-Regular.svg#FoundersGrotesk-Regular")
-      format("svg");
+  src: url("../fonts/FoundersGrotesk-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/FoundersGrotesk-Regular.woff2") format("woff2"), url("../fonts/FoundersGrotesk-Regular.woff") format("woff"),
+    url("../fonts/FoundersGrotesk-Regular.ttf") format("truetype"), url("../fonts/FoundersGrotesk-Regular.svg#FoundersGrotesk-Regular") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -42,13 +31,8 @@
 @font-face {
   font-family: "Founders Grotesk Regular";
   src: url("../fonts/FoundersGrotesk-RegularItalic.eot");
-  src: url("../fonts/FoundersGrotesk-RegularItalic.eot?#iefix")
-      format("embedded-opentype"),
-    url("../fonts/FoundersGrotesk-RegularItalic.woff2") format("woff2"),
-    url("../fonts/FoundersGrotesk-RegularItalic.woff") format("woff"),
-    url("../fonts/FoundersGrotesk-RegularItalic.ttf") format("truetype"),
-    url("../fonts/FoundersGrotesk-RegularItalic.svg#FoundersGrotesk-RegularItalic")
-      format("svg");
+  src: url("../fonts/FoundersGrotesk-RegularItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/FoundersGrotesk-RegularItalic.woff2") format("woff2"), url("../fonts/FoundersGrotesk-RegularItalic.woff") format("woff"),
+    url("../fonts/FoundersGrotesk-RegularItalic.ttf") format("truetype"), url("../fonts/FoundersGrotesk-RegularItalic.svg#FoundersGrotesk-RegularItalic") format("svg");
   font-weight: normal;
   font-style: italic;
   font-display: swap;
@@ -57,13 +41,8 @@
 @font-face {
   font-family: "Founders Grotesk Mono";
   src: url("../fonts/FoundersGroteskMono-Regular.eot");
-  src: url("../fonts/FoundersGroteskMono-Regular.eot?#iefix")
-      format("embedded-opentype"),
-    url("../fonts/FoundersGroteskMono-Regular.woff2") format("woff2"),
-    url("../fonts/FoundersGroteskMono-Regular.woff") format("woff"),
-    url("../fonts/FoundersGroteskMono-Regular.ttf") format("truetype"),
-    url("../fonts/FoundersGroteskMono-Regular.svg#FoundersGroteskMono-Regular")
-      format("svg");
+  src: url("../fonts/FoundersGroteskMono-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/FoundersGroteskMono-Regular.woff2") format("woff2"), url("../fonts/FoundersGroteskMono-Regular.woff") format("woff"),
+    url("../fonts/FoundersGroteskMono-Regular.ttf") format("truetype"), url("../fonts/FoundersGroteskMono-Regular.svg#FoundersGroteskMono-Regular") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -721,8 +700,7 @@ header {
   position: absolute;
   left: 0;
   right: 0;
-  transition: all var(--duration-fast) ease,
-    transform var(--duration-normal) var(--cubic-default);
+  transition: all var(--duration-fast) ease, transform var(--duration-normal) var(--cubic-default);
   z-index: 9;
 }
 
@@ -882,8 +860,7 @@ header :is(.nav, .container, .nav-bg) {
 
 /* ———— SHOW DROPDOWN ———— */
 .nav-dropdown {
-  transition: all var(--duration-fast) ease,
-    transform var(--duration-normal) var(--cubic-default);
+  transition: all var(--duration-fast) ease, transform var(--duration-normal) var(--cubic-default);
 }
 
 [data-dropdown-toggle]:hover + .nav-dropdown,
@@ -902,13 +879,7 @@ header :is(.nav, .container, .nav-bg) {
 .nav:has(.nav-center__list > li.col-2-dropdown:hover) {
   --nav-bg-height: 43rem;
 }
-:is(
-    body:has([data-dropdown-toggle]:hover),
-    body:has([data-dropdown-toggle]:focus-visible),
-    body:has([data-dropdown-toggle]:focus-within),
-    body:has(.nav-dropdown:hover),
-    body:has(.nav-dropdown:focus-within)
-  ) {
+:is(body:has([data-dropdown-toggle]:hover), body:has([data-dropdown-toggle]:focus-visible), body:has([data-dropdown-toggle]:focus-within), body:has(.nav-dropdown:hover), body:has(.nav-dropdown:focus-within)) {
   .nav-bg {
     height: var(--nav-bg-height);
   }
@@ -943,8 +914,7 @@ header :is(.nav, .container, .nav-bg) {
   [data-dropdown-toggle]:focus .nav-link__dropdown-icon,
   [data-dropdown-toggle]:focus-within .nav-link__dropdown-icon,
   [data-dropdown-toggle]:has(+ .nav-dropdown:hover) .nav-link__dropdown-icon,
-  [data-dropdown-toggle]:has(+ .nav-dropdown:focus-within)
-    .nav-link__dropdown-icon {
+  [data-dropdown-toggle]:has(+ .nav-dropdown:focus-within) .nav-link__dropdown-icon {
     transform: rotate(180deg);
   }
   [data-dropdown-toggle]:hover,
@@ -983,10 +953,7 @@ header :is(.nav, .container, .nav-bg) {
 .nav-dropdown__content-li:nth-child(7) {
   transition-delay: 0.54s;
 }
-body:has([data-dropdown-toggle]:hover)
-  [data-dropdown-toggle]:hover
-  + .nav-dropdown
-  .nav-dropdown__content-li,
+body:has([data-dropdown-toggle]:hover) [data-dropdown-toggle]:hover + .nav-dropdown .nav-dropdown__content-li,
 body:has([data-dropdown-toggle]:focus-visible) .nav-dropdown__content-li,
 body:has([data-dropdown-toggle]:focus-within) .nav-dropdown__content-li,
 body:has(.nav-dropdown:hover) .nav-dropdown__content-li,
@@ -1209,8 +1176,7 @@ body:has(.nav-dropdown:focus-within) .nav-dropdown__content-li {
     transition: grid-template-rows var(--duration-normal) var(--cubic-default);
   }
   .nav-center {
-    transition: all var(--duration-normal) var(--cubic-default),
-      opacity var(--duration-fast) var(--cubic-default);
+    transition: all var(--duration-normal) var(--cubic-default), opacity var(--duration-fast) var(--cubic-default);
   }
   .menu-button__line {
     transition: all var(--duration-normal) var(--cubic-default);
@@ -1734,10 +1700,27 @@ button.simple-btn {
   grid-template-columns: repeat(12, 1fr);
 }
 
-.filter-list__item img {
+.filter-list__item figure > img {
   width: 100%;
   display: block;
 }
+
+.filter-list__item .is-illustration {
+  position: absolute;
+}
+.is-illustration.right {
+  right: -60%;
+}
+.is-illustration.right {
+  bottom: 0;
+}
+.is-illustration.left {
+  left: -50%;
+}
+.is-illustration.center {
+  top: 30%;
+}
+
 .filter-list__item[data-filter-status="active"].position-1 {
   grid-column: 2 / 8;
 }
@@ -1791,16 +1774,14 @@ button.simple-btn {
   line-height: 1;
 }
 .filter-list__item[data-filter-status="active"] {
-  transition: opacity 0.6s cubic-bezier(0.625, 0.05, 0, 1),
-    transform 0.6s cubic-bezier(0.625, 0.05, 0, 1);
+  transition: opacity 0.6s cubic-bezier(0.625, 0.05, 0, 1), transform 0.6s cubic-bezier(0.625, 0.05, 0, 1);
   transform: scale(1) rotate(0.001deg);
   opacity: 1;
   visibility: visible;
   position: relative;
 }
 .filter-list__item[data-filter-status="transition-out"] {
-  transition: opacity 0.45s cubic-bezier(0.625, 0.05, 0, 1),
-    transform 0.45s cubic-bezier(0.625, 0.05, 0, 1);
+  transition: opacity 0.45s cubic-bezier(0.625, 0.05, 0, 1), transform 0.45s cubic-bezier(0.625, 0.05, 0, 1);
   transform: scale(0.9) rotate(0.001deg);
   opacity: 0;
   visibility: visible;
@@ -1813,17 +1794,6 @@ button.simple-btn {
   position: absolute;
 }
 
-@media screen and (max-width: 991px) {
-  .filter-list__item {
-    width: 50%;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .filter-list__item {
-    width: 100%;
-  }
-}
 /*------Gallery Pages Filter Css End-----------*/
 
 /*-----------------------------------------------------------------------------------------------------*/
