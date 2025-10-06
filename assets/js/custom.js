@@ -479,7 +479,7 @@ function initNavigation() {
     initNavigation._hasResizeListener = true;
     window.addEventListener("resize", debounce(initNavigation, 200));
   }
-  const isMobile = window.innerWidth < 768;
+  const isMobile = window.innerWidth < 841;
   if (isMobile && initNavigation._lastMode !== "mobile") {
     initMobileMenu();
     initNavigation._lastMode = "mobile";
