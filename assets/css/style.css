@@ -1837,6 +1837,15 @@ button.simple-btn {
 .nav-end.col .is-mobile {
     display: block;
 }
+.right-col {
+    padding-top: 0rem;
+}
+.simple-btn {
+    font-size: 1.12rem;
+}
+.nav-logo {
+    width: 125px;
+}
   .nav-center__list {
     gap: 1rem;
   }
@@ -2026,7 +2035,7 @@ footer .col-md-4.mobile-width {
   }
   .section-col-2 .left-col .center-content {
     padding-top: 2.5rem;
-    padding-bottom: 6.25rem;
+    padding-bottom: 4rem;
   }
   .section-col-2 .right-col .center-content {
     padding-top: 2.5rem;
@@ -2040,9 +2049,6 @@ footer .col-md-4.mobile-width {
   }
   .copyright-row {
     padding-top: 2rem;
-  }
-  .footer-logo {
-    padding-top: 3rem;
   }
   footer.background-light {
     padding-top: 4rem !important;
